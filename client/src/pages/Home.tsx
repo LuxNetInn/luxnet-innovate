@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -9,19 +10,19 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-accent-foreground" />
-            </div>
-            <span className="text-xl font-bold font-poppins">LuxNet Innovate</span>
-          </div>
+          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
+            <img src="/logo-green.png" alt="LuxNet Innovate" className="w-8 h-8" />
+            <span className="text-xl font-bold font-poppins text-green-500">LuxNet Innovate</span>
+          </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm hover:text-accent transition">Features</a>
-            <a href="#indicators" className="text-sm hover:text-accent transition">Indicators</a>
-            <a href="#pricing" className="text-sm hover:text-accent transition">Pricing</a>
-            <a href="#about" className="text-sm hover:text-accent transition">About</a>
+            <a href="#features" className="text-sm hover:text-green-500 transition">Características</a>
+            <a href="#indicators" className="text-sm hover:text-green-500 transition">Indicadores</a>
+            <a href="#pricing" className="text-sm hover:text-green-500 transition">Precios</a>
+            <a href="#about" className="text-sm hover:text-green-500 transition">Acerca de</a>
           </div>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Get Started</Button>
+          <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+            Comenzar
+          </Button>
         </div>
       </nav>
 
@@ -32,38 +33,35 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold font-poppins leading-tight">
-                Advanced Technical Analysis Without AI
+                Análisis Técnico Avanzado
               </h1>
               <p className="text-lg text-muted-foreground">
-                Professional-grade market analysis tools powered by pure technical indicators. Make informed trading decisions with real data, not algorithms.
+                Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Start Free Trial <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  Watch Demo
+                <Button size="lg" className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+                  Prueba Gratuita <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
               <div className="flex gap-8 pt-4">
                 <div>
-                  <div className="text-2xl font-bold text-accent">10K+</div>
-                  <div className="text-sm text-muted-foreground">Active Traders</div>
+                  <div className="text-2xl font-bold text-green-500">10K+</div>
+                  <div className="text-sm text-muted-foreground">Traders Activos</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent">50+</div>
-                  <div className="text-sm text-muted-foreground">Technical Indicators</div>
+                  <div className="text-2xl font-bold text-green-500">50+</div>
+                  <div className="text-sm text-muted-foreground">Indicadores Técnicos</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent">24/7</div>
-                  <div className="text-sm text-muted-foreground">Market Coverage</div>
+                  <div className="text-2xl font-bold text-green-500">24/7</div>
+                  <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <img 
                 src="/hero-banner.jpg" 
-                alt="Technical Analysis Dashboard" 
+                alt="Dashboard de Análisis Técnico" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
               <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-background/20 to-transparent" />
@@ -73,156 +71,135 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 border-t border-border bg-card/30">
+      <section id="features" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Why Choose LuxNet Innovate</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Características Principales</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need for professional technical analysis in one powerful platform
+              Herramientas profesionales diseñadas para traders serios que buscan análisis técnico puro
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              {
-                icon: BarChart3,
-                title: "Real-Time Analysis",
-                description: "Access live market data with minimal latency. Analyze price action as it happens across multiple timeframes."
-              },
-              {
-                icon: Zap,
-                title: "50+ Indicators",
-                description: "Professional technical indicators including RSI, MACD, Bollinger Bands, Stochastic, and more."
-              },
-              {
-                icon: Shield,
-                title: "Risk Management",
-                description: "Built-in position sizing tools and risk calculators to help you manage your capital effectively."
-              },
-              {
-                icon: TrendingUp,
-                title: "Pattern Recognition",
-                description: "Identify chart patterns and support/resistance levels with precision drawing tools."
-              },
-              {
-                icon: Users,
-                title: "Community Insights",
-                description: "Share analysis with other traders and learn from experienced market participants."
-              },
-              {
-                icon: Lightbulb,
-                title: "Educational Resources",
-                description: "Comprehensive guides and tutorials to master technical analysis fundamentals."
-              }
-            ].map((feature, idx) => (
-              <Card key={idx} className="p-6 border border-border bg-background/50 hover:bg-card/50 transition">
-                <feature.icon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </Card>
-            ))}
+              { icon: TrendingUp, title: "Indicadores Avanzados", description: "Acceso a 50+ indicadores técnicos profesionales" },
+              { icon: BarChart3, title: "Análisis en Tiempo Real", description: "Datos de mercado actualizados instantáneamente" },
+              { icon: Zap, title: "Alertas Inteligentes", description: "Notificaciones personalizadas basadas en tus criterios" },
+              { icon: Shield, title: "Seguridad Garantizada", description: "Protección de datos de nivel empresarial" },
+              { icon: Users, title: "Comunidad Activa", description: "Únete a miles de traders profesionales" },
+              { icon: Lightbulb, title: "Educación Continua", description: "Recursos y tutoriales para mejorar tus habilidades" }
+            ].map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={idx} className="p-6 bg-card/50 border-border hover:border-green-500/50 transition">
+                  <Icon className="w-8 h-8 text-green-500 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Indicators Section */}
-      <section id="indicators" className="py-20">
+      <section id="indicators" className="py-20 border-t border-border">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Technical Indicators</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Professional-grade indicators to analyze market trends and identify trading opportunities
-            </p>
-          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <img 
-              src="/indicators-section.jpg" 
-              alt="Technical Indicators" 
-              className="w-full rounded-lg shadow-lg border border-border"
-            />
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold font-poppins">Complete Indicator Suite</h3>
+              <h2 className="text-3xl md:text-4xl font-bold font-poppins">Indicadores Técnicos Profesionales</h2>
+              <p className="text-muted-foreground">
+                Indicadores de nivel profesional para analizar tendencias de mercado e identificar oportunidades de trading
+              </p>
               <div className="space-y-4">
                 {[
-                  { name: "Momentum Indicators", items: ["RSI", "MACD", "Stochastic Oscillator"] },
-                  { name: "Trend Indicators", items: ["Moving Averages", "Bollinger Bands", "TEMA"] },
-                  { name: "Volatility Indicators", items: ["ATR", "Keltner Channels", "Donchian Channels"] },
-                  { name: "Volume Indicators", items: ["OBV", "CMF", "Volume Profile"] }
+                  { title: "Indicadores de Momentum", items: ["RSI", "MACD", "Oscilador Estocástico"] },
+                  { title: "Indicadores de Tendencia", items: ["Medias Móviles", "Bandas de Bollinger", "Chandelier Exit"] },
+                  { title: "Indicadores de Volumen", items: ["Perfil de Volumen"] }
                 ].map((category, idx) => (
                   <div key={idx}>
-                    <h4 className="font-semibold text-accent mb-2">{category.name}</h4>
-                    <p className="text-sm text-muted-foreground">{category.items.join(", ")}</p>
+                    <h4 className="font-semibold text-green-500 mb-2">{category.title}</h4>
+                    <ul className="space-y-1">
+                      {category.items.map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="w-2 h-2 bg-green-500 rounded-full" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Explore All Indicators <ArrowRight className="ml-2 w-4 h-4" />
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+                Explorar Todos los Indicadores <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
+            </div>
+            <div className="relative">
+              <img 
+                src="/indicators-section.jpg" 
+                alt="Indicadores Técnicos" 
+                className="w-full rounded-lg shadow-2xl border border-border"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Trading Tools Section */}
-      <section className="py-20 border-t border-border bg-card/30">
+      <section className="py-20 border-t border-border">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 order-2 md:order-1">
-              <h3 className="text-2xl font-bold font-poppins">Advanced Trading Tools</h3>
+            <div className="relative">
+              <img 
+                src="/trading-tools.jpg" 
+                alt="Herramientas de Trading" 
+                className="w-full rounded-lg shadow-2xl border border-border"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold font-poppins">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
-                Professional-grade tools designed for serious traders who demand precision and control.
+                Suite completa de herramientas para análisis técnico profesional
               </p>
               <ul className="space-y-3">
                 {[
-                  "Multi-timeframe analysis",
-                  "Customizable chart layouts",
-                  "Drawing tools and annotations",
-                  "Alert system for key levels",
-                  "Trade journal and statistics",
-                  "Portfolio tracking"
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full" />
-                    <span className="text-sm">{item}</span>
+                  "Gráficos interactivos con múltiples timeframes",
+                  "Análisis de patrones de velas",
+                  "Herramientas de dibujo avanzadas",
+                  "Análisis de volumen y flujo de órdenes",
+                  "Alertas personalizadas en tiempo real",
+                  "Backtesting de estrategias"
+                ].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-muted-foreground">
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                    {feature}
                   </li>
                 ))}
               </ul>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Try Trading Tools <ArrowRight className="ml-2 w-4 h-4" />
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+                Probar Herramientas <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-            <img 
-              src="/trading-tools.jpg" 
-              alt="Trading Tools" 
-              className="w-full rounded-lg shadow-lg border border-border order-1 md:order-2"
-            />
           </div>
         </div>
       </section>
 
-      {/* Market Analysis Section */}
-      <section className="py-20">
+      {/* Market Coverage Section */}
+      <section className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Global Market Coverage</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Cobertura Global de Mercados</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Analyze stocks, cryptocurrencies, forex, and commodities all in one platform
+              Acceso a análisis técnico en múltiples mercados financieros
             </p>
           </div>
-          <img 
-            src="/market-analysis.jpg" 
-            alt="Market Analysis" 
-            className="w-full rounded-lg shadow-lg border border-border mb-12"
-          />
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="flex justify-center gap-8 max-w-2xl mx-auto">
             {[
-              { title: "Stock Indices", count: "100+" },
-              { title: "Cryptocurrencies", count: "500+" },
-              { title: "Forex Pairs", count: "50+" },
-              { title: "Commodities", count: "30+" }
+              { title: "Criptomonedas", description: "Bitcoin, Ethereum, Altcoins" },
+              { title: "Forex", description: "Pares de divisas principales y exóticos" }
             ].map((market, idx) => (
-              <Card key={idx} className="p-6 text-center border border-border bg-background/50">
-                <div className="text-3xl font-bold text-accent mb-2">{market.count}</div>
-                <div className="text-sm text-muted-foreground">{market.title}</div>
+              <Card key={idx} className="p-6 text-center bg-card/50 border-border flex-1">
+                <h3 className="text-xl font-semibold text-green-500 mb-2">{market.title}</h3>
+                <p className="text-sm text-muted-foreground">{market.description}</p>
               </Card>
             ))}
           </div>
@@ -230,42 +207,35 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 border-t border-border bg-card/30">
+      <section id="pricing" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Simple, Transparent Pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Planes de Precios</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Choose the plan that fits your trading needs
+              Elige el plan que se adapte a tus necesidades de trading
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                name: "Starter",
-                price: "$29",
-                period: "/month",
-                description: "Perfect for beginners",
-                features: ["Basic indicators", "1 watchlist", "Email support", "Daily market updates"]
+                name: "LuxNet Basic",
+                price: "$149.99",
+                period: "Pago Único",
+                description: "Para traders principiantes",
+                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Estrategia de Trading Rentable"]
               },
               {
-                name: "Professional",
-                price: "$79",
-                period: "/month",
-                description: "For serious traders",
-                features: ["All indicators", "Unlimited watchlists", "Priority support", "Real-time alerts", "Advanced charts"],
+                name: "LuxNet Professional",
+                price: "$250.99",
+                period: "Pago Único",
+                description: "Para traders serios",
+                features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal"],
                 highlighted: true
-              },
-              {
-                name: "Enterprise",
-                price: "Custom",
-                period: "pricing",
-                description: "For institutions",
-                features: ["Everything in Pro", "API access", "Dedicated support", "Custom integrations", "White-label options"]
               }
             ].map((plan, idx) => (
               <Card 
                 key={idx} 
-                className={`p-8 border ${plan.highlighted ? 'border-accent bg-card' : 'border-border bg-background/50'}`}
+                className={`p-8 border ${plan.highlighted ? 'border-green-500 bg-card' : 'border-border bg-background/50'} hover:border-green-500 transition`}
               >
                 <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
@@ -274,15 +244,15 @@ export default function Home() {
                   <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
                 </div>
                 <Button 
-                  className={`w-full mb-6 ${plan.highlighted ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}
-                  variant={plan.highlighted ? "default" : "outline"}
+                  className="w-full mb-6 bg-green-500 text-black hover:bg-green-600"
+                  onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
                 >
-                  Get Started
+                  Comenzar
                 </Button>
                 <ul className="space-y-3">
                   {plan.features.map((feature, fidx) => (
                     <li key={fidx} className="flex items-center gap-2 text-sm">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                      <div className="w-2 h-2 bg-green-500 rounded-full" />
                       {feature}
                     </li>
                   ))}
@@ -294,96 +264,156 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 border-t border-border">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">About LuxNet Innovate</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              LuxNet Innovate is dedicated to providing traders and investors with professional-grade technical analysis tools. 
-              We believe in the power of pure technical analysis—no AI, no algorithms, just you and the market data.
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Acerca de LuxNet Innovate</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
             </p>
-            <p className="text-muted-foreground mb-8">
-              Founded by experienced traders, our platform combines years of market expertise with cutting-edge technology 
-              to deliver the tools you need to succeed in today's dynamic financial markets.
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Fundada por un equipo de traders profesionales, LuxNet Innovate no solo ofrece tecnología avanzada, sino que también comparte una rica herencia de conocimientos adquiridos a lo largo de años de experiencia en el terreno. Esta combinación única de sabiduría y tecnología asegura que nuestros usuarios cuenten con recursos excepcionales para tomar decisiones informadas y estratégicas.
             </p>
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              {[
-                { label: "Founded", value: "2023" },
-                { label: "Team Members", value: "25+" },
-                { label: "Countries Served", value: "50+" }
-              ].map((stat, idx) => (
-                <div key={idx}>
-                  <div className="text-2xl font-bold text-accent">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              En un entorno financiero que cambia constantemente, nuestra plataforma está diseñada para adaptarse y evolucionar, manteniéndote a la vanguardia de las tendencias y oportunidades del mercado. Con LuxNet Innovate, no solo estás obteniendo herramientas de análisis, sino también un socio comprometido con tu éxito en cada paso del camino.
+            </p>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              Únete a nosotros y descubre cómo nuestra dedicación al análisis técnico puro puede transformar tu experiencia de trading e inversión, llevándote a nuevos niveles de conocimiento y rentabilidad.
+            </p>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              <a href="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquirytype=EntityName&directionType=Initial&searchNameOrder=LUXNETINNOVATE%20L250001743490&aggregateId=flal-l25000174349-84d63024-5fa1-41ec-9bbf-542d8cf90359&searchTerm=LUXNET%20INNovate%20LLC&listNameOrder=LUXNETINNOVATE%20L250001743490" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition font-semibold">
+                Verificar Registro Legal de la Empresa
+              </a>
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { value: "2025", label: "Fundada" },
+              { value: "35", label: "Miembros del Equipo" },
+              { value: "50+", label: "Países Servidos" }
+            ].map((stat, idx) => (
+              <Card key={idx} className="p-6 text-center bg-card/50 border-border">
+                <div className="text-3xl font-bold text-green-500 mb-2">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CEO Section */}
+      <section className="py-20 border-t border-border">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Conoce al CEO</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Liderazgo apasionado en análisis técnico y educación financiera
+            </p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <Card className="p-8 bg-card/50 border-border">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-shrink-0">
+                  <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
                 </div>
-              ))}
-            </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold font-poppins mb-2 text-green-500">Yudiel Almarales</h3>
+                  <p className="text-sm text-muted-foreground mb-4 font-semibold">Fundador y CEO de LuxNet Innovate</p>
+                  <p className="text-muted-foreground mb-4">
+                    Con una sólida formación médica como Cirujano Residente en Cuba, Yudiel ha demostrado ser un emprendedor versátil y visionario. Tras emigrar a los Estados Unidos, decidió expandir sus horizontes más allá de la medicina, incursionando en el mundo del trading e inversión financiera.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    Con más de 4 años de experiencia en análisis técnico y trading, Yudiel ha desarrollado una profunda comprensión de los mercados financieros. Su combinación única de disciplina médica, pensamiento analítico y experiencia en trading lo posiciona como un educador excepcional.
+                  </p>
+                  <p className="text-muted-foreground mb-6">
+                    Su objetivo es empoderar a la comunidad latina y al público en general, proporcionando herramientas, educación y mentoría de calidad para que puedan tomar decisiones financieras informadas y construir riqueza a través del trading profesional.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a href="https://t.me/LuxNet_Innovate_FreeSignals" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition font-semibold">
+                      Conectar en Telegram
+                    </a>
+                    <a href="mailto:info@luxnetinnovate.com" className="inline-flex items-center gap-2 px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500/10 transition font-semibold">
+                      Contactar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-border bg-gradient-to-r from-primary/10 via-transparent to-accent/10">
+      <section className="py-20 border-t border-border bg-gradient-to-br from-primary/10 via-transparent to-accent/5">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">Ready to Master Technical Analysis?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of traders using LuxNet Innovate for professional technical analysis
+            Únete a miles de traders que usan LuxNet Innovate para análisis técnico profesional
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Start Free Trial <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            <Button size="lg" variant="outline">
-              Schedule Demo
+            <Button size="lg" variant="outline" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+              Agendar Demo
             </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/30 py-12">
+      <footer className="border-t border-border py-12 bg-background/50">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-6 h-6 bg-accent rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-4 h-4 text-accent-foreground" />
-                </div>
-                <span className="font-bold">LuxNet Innovate</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Professional technical analysis platform</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">Producto</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition">Features</a></li>
-                <li><a href="#" className="hover:text-accent transition">Pricing</a></li>
-                <li><a href="#" className="hover:text-accent transition">Indicators</a></li>
+                <li><a href="#features" className="hover:text-green-500 transition">Características</a></li>
+                <li><a href="#indicators" className="hover:text-green-500 transition">Indicadores</a></li>
+                <li><a href="#pricing" className="hover:text-green-500 transition">Precios</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition">About</a></li>
-                <li><a href="#" className="hover:text-accent transition">Blog</a></li>
-                <li><a href="#" className="hover:text-accent transition">Contact</a></li>
+                <li><a href="#about" className="hover:text-green-500 transition">Acerca de</a></li>
+                <li><a href="/ceo" className="hover:text-green-500 transition">Conoce al CEO</a></li>
+                <li><a href="/privacy" className="hover:text-green-500 transition">Privacidad</a></li>
+                <li><a href="/disclaimer" className="hover:text-green-500 transition">Descargo de Responsabilidad</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-accent transition">Privacy</a></li>
-                <li><a href="#" className="hover:text-accent transition">Terms</a></li>
-                <li><a href="#" className="hover:text-accent transition">Disclaimer</a></li>
+                <li><a href="/terms" className="hover:text-green-500 transition">Términos</a></li>
+                <li><a href="/privacy" className="hover:text-green-500 transition">Política de Privacidad</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Contacto</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-muted-foreground">© 2024 LuxNet Innovate. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="text-muted-foreground hover:text-accent transition text-sm">Twitter</a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition text-sm">LinkedIn</a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition text-sm">Discord</a>
+            <p className="text-sm text-muted-foreground">© 2025 LuxNet Innovate. Todos los derechos reservados.</p>
+            <div className="flex gap-8 mt-4 md:mt-0">
+              <a href="https://discord.gg/wFWHNgDNG" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
+                <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.607 1.25a18.27 18.27 0 0 0-5.487 0c-.162-.385-.395-.875-.607-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.294.075.075 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.075.075 0 0 1 .079.009c.12.098.246.198.373.295a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.076.076 0 0 0-.041.107c.36.699.772 1.365 1.225 1.994a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-4.786-.838-8.95-3.549-12.676a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.156.964 2.156 2.157 0 1.19-.963 2.156-2.156 2.156zm7.975 0c-1.183 0-2.157-.965-2.157-2.156 0-1.193.964-2.157 2.157-2.157 1.193 0 2.157.964 2.157 2.157 0 1.19-.964 2.156-2.157 2.156z" />
+                </svg>
+                <span className="text-sm">Discord</span>
+              </a>
+              <a href="https://t.me/+FCTX0J-vqsIxYmFh" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
+                <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.328-.373-.115l-6.869 4.332-2.97-.924c-.644-.203-.658-.644.136-.953l11.593-4.47c.538-.196 1.006.128.832.941z" />
+                </svg>
+                <span className="text-sm">Telegram</span>
+              </a>
+              <a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
+                <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-8.062 8.062c0 1.422.341 2.816 1.002 4.104l-1.063 3.627 3.724-1.057a8.025 8.025 0 003.84.974h.005c4.447 0 8.067-3.626 8.067-8.074 0-2.155-.853-4.182-2.404-5.701-1.552-1.519-3.578-2.357-5.74-2.357" />
+                </svg>
+                <span className="text-sm">WhatsApp</span>
+              </a>
             </div>
           </div>
         </div>
