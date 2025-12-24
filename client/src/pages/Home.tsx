@@ -433,13 +433,13 @@ export default function Home() {
         isOpen={showBasicPDF}
         onClose={() => setShowBasicPDF(false)}
         title="Entrenamiento de Trading Básico"
-        pdfUrl="/EntrenamientodeTradingBásicoLuxNet.pdf"
+        pdfUrl="/training-basic.pdf"
       />
       <PDFModal
         isOpen={showProfessionalPDF}
         onClose={() => setShowProfessionalPDF(false)}
         title="Entrenamiento de Trading Profesional"
-        pdfUrl="/EntrenamientodeTradingProfesionalLuxNet.pdf"
+        pdfUrl="/training-professional.pdf"
       />
     </div>
   );
