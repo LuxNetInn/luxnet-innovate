@@ -90,7 +90,7 @@ export default function Home() {
             ].map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <Card key={idx} className="p-6 bg-card/50 border-border hover:border-green-500/50 transition">
+                <Card key={idx} className="p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300">
                   <Icon className="w-8 h-8 text-green-500 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
