@@ -3,8 +3,12 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+import PDFModal from "@/components/PDFModal";
 
 export default function Home() {
+  const [showBasicPDF, setShowBasicPDF] = useState(false);
+  const [showProfessionalPDF, setShowProfessionalPDF] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
@@ -239,12 +243,21 @@ export default function Home() {
                   <span className="text-4xl font-bold">{plan.price}</span>
                   <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
                 </div>
-                <Button 
-                  className="w-full mb-6 bg-green-500 text-black hover:bg-green-600"
-                  onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
-                >
-                  Comenzar
-                </Button>
+                <div className="flex gap-3 mb-6">
+                  <Button 
+                    className="flex-1 bg-green-500 text-black hover:bg-green-600"
+                    onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
+                  >
+                    Comenzar
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    className="flex-1 border-green-500 text-green-500 hover:bg-green-500/10"
+                    onClick={() => idx === 0 ? setShowBasicPDF(true) : setShowProfessionalPDF(true)}
+                  >
+                    Ver Detalles
+                  </Button>
+                </div>
                 <ul className="space-y-3">
                   {plan.features.map((feature, fidx) => (
                     <li key={fidx} className="flex items-center gap-2 text-sm">
@@ -414,6 +427,20 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* PDF Modals */}
+      <PDFModal
+        isOpen={showBasicPDF}
+        onClose={() => setShowBasicPDF(false)}
+        title="Entrenamiento de Trading Básico"
+        pdfUrl="/EntrenamientodeTradingBásicoLuxNet.pdf"
+      />
+      <PDFModal
+        isOpen={showProfessionalPDF}
+        onClose={() => setShowProfessionalPDF(false)}
+        title="Entrenamiento de Trading Profesional"
+        pdfUrl="/EntrenamientodeTradingProfesionalLuxNet.pdf"
+      />
     </div>
   );
 }
