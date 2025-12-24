@@ -252,7 +252,7 @@ export default function Home() {
                   </Button>
                   <Button 
                     variant="outline"
-                    className="flex-1 border-green-500 text-green-500 hover:bg-green-500/10"
+                    className="flex-1 border-2 border-green-500 text-green-500 hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 shadow-[0_0_10px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.8)]"
                     onClick={() => idx === 0 ? setShowBasicPDF(true) : setShowProfessionalPDF(true)}
                   >
                     Ver Detalles
