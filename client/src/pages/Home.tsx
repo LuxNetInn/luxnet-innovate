@@ -45,10 +45,6 @@ export default function Home() {
               </div>
               <div className="flex gap-8 pt-4">
                 <div>
-                  <div className="text-2xl font-bold text-green-500">10K+</div>
-                  <div className="text-sm text-muted-foreground">Traders Activos</div>
-                </div>
-                <div>
                   <div className="text-2xl font-bold text-green-500">50+</div>
                   <div className="text-sm text-muted-foreground">Indicadores Técnicos</div>
                 </div>
