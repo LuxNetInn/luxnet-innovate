@@ -417,13 +417,9 @@ export default function Home() {
                 </svg>
                 <span className="text-sm">Telegram</span>
               </a>
-              <a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-2">
-                <div className="relative w-12 h-12 rounded-full bg-green-500 group-hover:shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 flex items-center justify-center">
-                  <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a8.06 8.06 0 00-8.062 8.062c0 1.422.341 2.816 1.002 4.104l-1.063 3.627 3.724-1.057a8.025 8.025 0 003.84.974h.005c4.447 0 8.067-3.626 8.067-8.074 0-2.155-.853-4.182-2.404-5.701-1.552-1.519-3.578-2.357-5.74-2.357" />
-                  </svg>
-                </div>
-                <span className="text-sm text-muted-foreground group-hover:text-green-500 transition">WhatsApp</span>
+              <a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
+                <img src="/images/whatsapp-icon.png" alt="WhatsApp" className="w-6 h-6" />
+                <span className="text-sm">WhatsApp</span>
               </a>
             </div>
           </div>
