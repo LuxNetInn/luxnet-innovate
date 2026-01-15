@@ -36,7 +36,7 @@ export default function Home() {
         <div className="container py-20 md:py-32 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold font-poppins leading-tight">
+              <h1 className="text-4xl md:text-5xl font-semibold font-poppins leading-tight">
                 Análisis Técnico Avanzado
               </h1>
               <p className="text-lg text-muted-foreground">
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img 
-                src="/hero-banner.jpg" 
+                src="/images/trading-chart-1.png" 
                 alt="Dashboard de Análisis Técnico" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
@@ -74,7 +74,7 @@ export default function Home() {
       <section id="features" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Características Principales</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Características Principales</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Herramientas profesionales diseñadas para traders serios que buscan análisis técnico puro
             </p>
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold font-poppins">Indicadores Técnicos Profesionales</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold font-poppins">Indicadores Técnicos Profesionales</h2>
               <p className="text-muted-foreground">
                 Indicadores de nivel profesional para analizar tendencias de mercado e identificar oportunidades de trading
               </p>
@@ -135,7 +135,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img 
-                src="/indicators-section.jpg" 
+                src="/images/trading-chart-2.png" 
                 alt="Indicadores Técnicos" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
@@ -150,13 +150,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img 
-                src="/trading-tools.jpg" 
+                src="/images/trading-chart-3.png" 
                 alt="Herramientas de Trading" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold font-poppins">Herramientas Avanzadas de Trading</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold font-poppins">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
                 Suite completa de herramientas para análisis técnico profesional
               </p>
@@ -187,7 +187,7 @@ export default function Home() {
       <section className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Cobertura Global de Mercados</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Cobertura Global de Mercados</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Acceso a análisis técnico en múltiples mercados financieros
             </p>
@@ -210,7 +210,7 @@ export default function Home() {
       <section id="pricing" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Planes de Precios</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Planes de Precios</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Elige el plan que se adapte a tus necesidades de trading
             </p>
@@ -276,7 +276,7 @@ export default function Home() {
       <section id="about" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Acerca de LuxNet Innovate</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">Acerca de LuxNet Innovate</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
             </p>
@@ -314,7 +314,7 @@ export default function Home() {
       <section className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4">Conoce al CEO</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">Conoce al CEO</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Liderazgo apasionado en análisis técnico y educación financiera
             </p>
@@ -326,7 +326,7 @@ export default function Home() {
                   <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold font-poppins mb-2 text-green-500">Yudiel Almarales</h3>
+                  <h3 className="text-2xl font-semibold font-poppins mb-4">Yudiel Almarales</h3>
                   <p className="text-sm text-muted-foreground mb-4 font-semibold">Fundador y CEO de LuxNet Innovate</p>
                   <p className="text-muted-foreground mb-4">
                     Con una sólida formación médica como Cirujano Residente en Cuba, Yudiel ha demostrado ser un emprendedor versátil y visionario. Tras emigrar a los Estados Unidos, decidió expandir sus horizontes más allá de la medicina, incursionando en el mundo del trading e inversión financiera.
@@ -355,7 +355,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 border-t border-border bg-gradient-to-br from-primary/10 via-transparent to-accent/5">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-6">¿Listo para Dominar el Análisis Técnico?</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Únete a miles de traders que usan LuxNet Innovate para análisis técnico profesional
           </p>

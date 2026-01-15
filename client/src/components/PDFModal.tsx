@@ -19,11 +19,12 @@ export default function PDFModal({ isOpen, onClose, title, pdfUrl }: PDFModalPro
             <div className="flex gap-2">
               <a
                 href={pdfUrl}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition font-semibold"
               >
                 <Download className="w-4 h-4" />
-                Descargar
+                Ver en Nueva Pestaña
               </a>
               <Button
                 variant="ghost"
