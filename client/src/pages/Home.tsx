@@ -418,7 +418,7 @@ export default function Home() {
                 <span className="text-sm">Telegram</span>
               </a>
               <a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
-                <img src="/images/whatsapp-icon.png" alt="WhatsApp" className="w-6 h-6" />
+                <img src="/images/whatsapp-icon.png" alt="WhatsApp" className="w-7 h-7" />
                 <span className="text-sm">WhatsApp</span>
               </a>
             </div>
