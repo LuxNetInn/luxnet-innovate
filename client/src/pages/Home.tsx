@@ -9,6 +9,7 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 export default function Home() {
   const [showBasicPDF, setShowBasicPDF] = useState(false);
   const [showProfessionalPDF, setShowProfessionalPDF] = useState(false);
+  const [showCEOModal, setShowCEOModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -318,47 +319,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CEO Section */}
-      <section className="py-20 border-t border-border">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">Conoce al CEO</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Liderazgo apasionado en análisis técnico y educación financiera
-            </p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8 bg-card/50 border-border">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="flex-shrink-0">
-                  <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold font-poppins mb-4">Yudiel Almarales</h3>
-                  <p className="text-sm text-muted-foreground mb-4 font-semibold">Fundador y CEO de LuxNet Innovate</p>
-                  <p className="text-muted-foreground mb-4">
-                    Con una sólida formación médica como Cirujano Residente en Cuba, Yudiel ha demostrado ser un emprendedor versátil y visionario. Tras emigrar a los Estados Unidos, decidió expandir sus horizontes más allá de la medicina, incursionando en el mundo del trading e inversión financiera.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    Con más de 4 años de experiencia en análisis técnico y trading, Yudiel ha desarrollado una profunda comprensión de los mercados financieros. Su combinación única de disciplina médica, pensamiento analítico y experiencia en trading lo posiciona como un educador excepcional.
-                  </p>
-                  <p className="text-muted-foreground mb-6">
-                    Su objetivo es empoderar a la comunidad latina y al público en general, proporcionando herramientas, educación y mentoría de calidad para que puedan tomar decisiones financieras informadas y construir riqueza a través del trading profesional.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a href="https://t.me/LuxNet_Innovate_FreeSignals" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition font-semibold">
-                      Conectar en Telegram
-                    </a>
-                    <a href="mailto:info@luxnetinnovate.com" className="inline-flex items-center gap-2 px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500/10 transition font-semibold">
-                      Contactar
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 border-t border-border bg-gradient-to-br from-primary/10 via-transparent to-accent/5">
@@ -391,7 +352,7 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#about" className="hover:text-green-500 transition">Acerca de</a></li>
-                <li><a href="/ceo" className="hover:text-green-500 transition">Conoce al CEO</a></li>
+                <li><button onClick={() => setShowCEOModal(true)} className="hover:text-green-500 transition cursor-pointer">Conoce al CEO</button></li>
                 <li><a href="/privacy" className="hover:text-green-500 transition">Privacidad</a></li>
                 <li><a href="/disclaimer" className="hover:text-green-500 transition">Descargo de Responsabilidad</a></li>
               </ul>
@@ -447,6 +408,50 @@ export default function Home() {
         title="Entrenamiento de Trading Profesional"
         pdfUrl="/training-professional.pdf"
       />
+
+      {/* CEO Modal */}
+      {showCEOModal && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-2xl bg-card border-border max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <div className="flex justify-between items-start mb-6">
+                <h2 className="text-3xl font-semibold font-poppins">Conoce al CEO</h2>
+                <button onClick={() => setShowCEOModal(false)} className="text-muted-foreground hover:text-foreground transition">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex-shrink-0">
+                  <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold font-poppins mb-4">Yudiel Almarales</h3>
+                  <p className="text-sm text-muted-foreground mb-4 font-semibold">Fundador y CEO de LuxNet Innovate</p>
+                  <p className="text-muted-foreground mb-4">
+                    Con una sólida formación médica como Cirujano Residente en Cuba, Yudiel ha demostrado ser un emprendedor versátil y visionario. Tras emigrar a los Estados Unidos, decidió expandir sus horizontes más allá de la medicina, incursionando en el mundo del trading e inversión financiera.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    Con más de 4 años de experiencia en análisis técnico y trading, Yudiel ha desarrollado una profunda comprensión de los mercados financieros. Su combinación única de disciplina médica, pensamiento analítico y experiencia en trading lo posiciona como un educador excepcional.
+                  </p>
+                  <p className="text-muted-foreground mb-6">
+                    Su objetivo es empoderar a la comunidad latina y al público en general, proporcionando herramientas, educación y mentoría de calidad para que puedan tomar decisiones financieras informadas y construir riqueza a través del trading profesional.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a href="https://t.me/LuxNet_Innovate_FreeSignals" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-black rounded-lg hover:bg-green-600 transition font-semibold">
+                      Conectar en Telegram
+                    </a>
+                    <a href="mailto:info@luxnetinnovate.com" className="inline-flex items-center gap-2 px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500/10 transition font-semibold">
+                      Contactar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
