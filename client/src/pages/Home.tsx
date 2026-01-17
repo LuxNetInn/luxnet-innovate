@@ -4,6 +4,7 @@ import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from
 import { Link } from "wouter";
 import { useState } from "react";
 import PDFModal from "@/components/PDFModal";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
   const [showBasicPDF, setShowBasicPDF] = useState(false);
@@ -89,12 +90,15 @@ export default function Home() {
               { icon: Lightbulb, title: "Educación Continua", description: "Recursos y tutoriales para mejorar tus habilidades" }
             ].map((feature, idx) => {
               const Icon = feature.icon;
+              const { ref, isVisible } = useIntersectionObserver();
               return (
-                <Card key={idx} className="p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300">
-                  <Icon className="w-8 h-8 text-green-500 mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
-                </Card>
+                <div key={idx} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
+                  <Card className="p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300">
+                    <Icon className="w-8 h-8 text-green-500 mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  </Card>
+                </div>
               );
             })}
           </div>
@@ -232,9 +236,11 @@ export default function Home() {
                 features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal"],
                 highlighted: true
               }
-            ].map((plan, idx) => (
+            ].map((plan, idx) => {
+              const { ref, isVisible } = useIntersectionObserver();
+              return (
+              <div ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
               <Card 
-                key={idx} 
                 className={`p-8 border ${plan.highlighted ? 'border-green-500 bg-card' : 'border-border bg-background/50'} hover:border-green-500 hover:border-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300`}
               >
                 <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
@@ -267,7 +273,9 @@ export default function Home() {
                   ))}
                 </ul>
               </Card>
-            ))}
+              </div>
+            );
+            })}
           </div>
         </div>
       </section>
