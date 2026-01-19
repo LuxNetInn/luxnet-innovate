@@ -38,7 +38,7 @@ export default function Home() {
         <div className="container py-20 md:py-32 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-semibold font-poppins leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
                 Análisis Técnico Avanzado
               </h1>
               <p className="text-lg text-muted-foreground">
@@ -76,7 +76,7 @@ export default function Home() {
       <section id="features" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Características Principales</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-4 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Características Principales</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Herramientas profesionales diseñadas para traders serios que buscan análisis técnico puro
             </p>
@@ -111,7 +111,7 @@ export default function Home() {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold font-poppins">Indicadores Técnicos Profesionales</h2>
+              <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Indicadores Técnicos Profesionales</h2>
               <p className="text-muted-foreground">
                 Indicadores de nivel profesional para analizar tendencias de mercado e identificar oportunidades de trading
               </p>
@@ -161,7 +161,7 @@ export default function Home() {
               />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold font-poppins">Herramientas Avanzadas de Trading</h2>
+              <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
                 Suite completa de herramientas para análisis técnico profesional
               </p>
@@ -192,7 +192,7 @@ export default function Home() {
       <section className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Cobertura Global de Mercados</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-4 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Cobertura Global de Mercados</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Acceso a análisis técnico en múltiples mercados financieros
             </p>
@@ -215,7 +215,7 @@ export default function Home() {
       <section id="pricing" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-4">Planes de Precios</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-4 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Planes de Precios</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Elige el plan que se adapte a tus necesidades de trading
             </p>
@@ -285,7 +285,7 @@ export default function Home() {
       <section id="about" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Acerca de LuxNet Innovate</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Acerca de LuxNet Innovate</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
             </p>
@@ -320,7 +320,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 border-t border-border bg-gradient-to-br from-primary/10 via-transparent to-accent/5">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">¿Listo para Dominar el Análisis Técnico?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Únete a miles de traders que usan LuxNet Innovate para análisis técnico profesional
           </p>
@@ -413,7 +413,7 @@ export default function Home() {
           <Card className="w-full max-w-2xl bg-card border-border max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-3xl font-semibold font-poppins">Conoce al CEO</h2>
+                <h2 className="text-3xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Conoce al CEO</h2>
                 <button onClick={() => setShowCEOModal(false)} className="text-muted-foreground hover:text-foreground transition">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
