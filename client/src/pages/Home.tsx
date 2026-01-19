@@ -298,11 +298,7 @@ export default function Home() {
             <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               Únete a nosotros y descubre cómo nuestra dedicación al análisis técnico puro puede transformar tu experiencia de trading e inversión, llevándote a nuevos niveles de conocimiento y rentabilidad.
             </p>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              <a href="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquirytype=EntityName&directionType=Initial&searchNameOrder=LUXNETINNOVATE%20L250001743490&aggregateId=flal-l25000174349-84d63024-5fa1-41ec-9bbf-542d8cf90359&searchTerm=LUXNET%20INNovate%20LLC&listNameOrder=LUXNETINNOVATE%20L250001743490" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition font-semibold">
-                Verificar Registro Legal de la Empresa
-              </a>
-            </p>
+
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
