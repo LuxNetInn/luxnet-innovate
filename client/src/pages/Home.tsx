@@ -325,7 +325,7 @@ export default function Home() {
             Únete a miles de traders que usan LuxNet Innovate para análisis técnico profesional
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.8)] transition-all duration-300" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+            <Button size="lg" className="bg-black border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.8)] transition-all duration-300" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
               Demo
             </Button>
           </div>
