@@ -18,7 +18,7 @@ export default function Home() {
         <div className="container flex items-center justify-between h-16">
           <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
             <img src="/logo-green.png" alt="LuxNet Innovate" className="w-8 h-8" />
-            <span className="text-xl font-bold font-poppins text-green-500">LuxNet Innovate</span>
+            <span className="text-xl font-bold font-orbitron text-green-500">LuxNet Innovate</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm hover:text-green-500 transition">Características</a>
