@@ -285,7 +285,7 @@ export default function Home() {
       <section id="about" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8">Acerca de LuxNet Innovate</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold font-poppins mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Acerca de LuxNet Innovate</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
             </p>
