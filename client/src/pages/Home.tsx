@@ -227,14 +227,14 @@ export default function Home() {
                 price: "$149.99",
                 period: "Pago Único",
                 description: "Para traders principiantes",
-                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Estrategia de Trading Rentable"]
+                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Cómo Crear una Estrategia de Trading Rentable"]
               },
               {
                 name: "LuxNet Professional",
                 price: "$250.99",
                 period: "Pago Único",
                 description: "Para traders serios",
-                features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal"],
+                features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal", "Estrategia de Trading Rentable"],
                 highlighted: true
               }
             ].map((plan, idx) => {
