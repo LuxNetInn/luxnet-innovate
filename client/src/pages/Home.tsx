@@ -21,10 +21,10 @@ export default function Home() {
             <span className="text-xl font-bold font-orbitron text-green-500">LuxNet Innovate</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)]">Características</a>
-            <a href="#indicators" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)]">Indicadores</a>
-            <a href="#pricing" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)]">Precios</a>
-            <a href="#about" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)]">Acerca de</a>
+            <a href="#features" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Características</a>
+            <a href="#indicators" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Indicadores</a>
+            <a href="#pricing" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Precios</a>
+            <a href="#about" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Acerca de</a>
           </div>
           <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
             Comenzar
