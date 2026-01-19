@@ -51,11 +51,11 @@ export default function Home() {
               </div>
               <div className="flex gap-8 pt-4">
                 <div>
-                  <div className="text-2xl font-bold text-green-500">50+</div>
+                  <div className="text-2xl font-bold font-orbitron text-green-500">50+</div>
                   <div className="text-sm text-muted-foreground">Indicadores Técnicos</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-500">24/7</div>
+                  <div className="text-2xl font-bold font-orbitron text-green-500">24/7</div>
                   <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default function Home() {
               { value: "50+", label: "Países Servidos" }
             ].map((stat, idx) => (
               <Card key={idx} className="p-6 text-center bg-card/50 border-border">
-                <div className="text-3xl font-bold text-green-500 mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold font-orbitron text-green-500 mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </Card>
             ))}
@@ -364,6 +364,7 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Contacto</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
+                <li><a href="mailto:info@luxnetinnovate.com" className="hover:text-green-500 transition">Email</a></li>
               </ul>
             </div>
           </div>
