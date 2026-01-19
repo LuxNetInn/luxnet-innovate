@@ -244,10 +244,10 @@ export default function Home() {
               <Card 
                 className={`p-8 border ${plan.highlighted ? 'border-green-500 bg-card' : 'border-border bg-background/50'} hover:border-green-500 hover:border-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300`}
               >
-                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
+                <h3 className="text-xl font-bold font-orbitron mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-4xl font-bold font-orbitron">{plan.price}</span>
                   <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
                 </div>
                 <div className="flex gap-3 mb-6">
