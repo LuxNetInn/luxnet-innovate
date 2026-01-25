@@ -426,7 +426,7 @@ export default function Home() {
                   <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold font-poppins mb-4">Yudiel Almarales</h3>
+                  <h3 className="text-2xl font-semibold font-orbitron mb-4">Yudiel Almarales</h3>
                   <p className="text-sm text-muted-foreground mb-4 font-semibold">Fundador y CEO de LuxNet Innovate</p>
                   <p className="text-muted-foreground mb-4">
                     Con una sólida formación médica como Cirujano Residente en Cuba, Yudiel ha demostrado ser un emprendedor versátil y visionario. Tras emigrar a los Estados Unidos, decidió expandir sus horizontes más allá de la medicina, incursionando en el mundo del trading e inversión financiera.
