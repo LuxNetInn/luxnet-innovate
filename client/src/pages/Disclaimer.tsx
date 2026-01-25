@@ -14,7 +14,7 @@ export default function Disclaimer() {
             <img src="/logo-green.png" alt="LuxNet Innovate" className="w-8 h-8" />
             <span className="text-xl font-bold font-poppins text-green-500">LuxNet Innovate</span>
           </a>
-          <Button onClick={() => navigate("/")} className="flex items-center gap-2 text-green-500 hover:text-green-400 hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] transition-all duration-300">
+          <Button className="flex items-center gap-2 bg-black border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.8)] transition-all duration-300" onClick={() => navigate("/")}>
             <ArrowLeft className="w-4 h-4" />
             Volver
           </Button>
