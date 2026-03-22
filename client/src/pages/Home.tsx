@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PDFModal from "@/components/PDFModal";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
@@ -10,21 +10,93 @@ export default function Home() {
   const [showBasicPDF, setShowBasicPDF] = useState(false);
   const [showProfessionalPDF, setShowProfessionalPDF] = useState(false);
   const [showCEOModal, setShowCEOModal] = useState(false);
+  const [bubbles, setBubbles] = useState<Array<{id: number, x: number, y: number}>>([]);
+
+  useEffect(() => {
+    // Inicializar PayPal hosted buttons cuando el componente se monta
+    if ((window as any).paypal) {
+      // Renderizar botón Basic
+      (window as any).paypal.HostedButtons({
+        hostedButtonId: "H8CPXMZH8SA6U"
+      }).render("#paypal-container-H8CPXMZH8SA6U");
+      
+      // Renderizar botón Professional
+      (window as any).paypal.HostedButtons({
+        hostedButtonId: "P6YDYJ8ESB5Y8"
+      }).render("#paypal-container-P6YDYJ8ESB5Y8");
+      
+      // Renderizar botón Master Class
+      (window as any).paypal.HostedButtons({
+        hostedButtonId: "WGYF89W94W8WJ"
+      }).render("#paypal-container-WGYF89W94W8WJ");
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const pricingSection = document.getElementById('pricing');
+      if (pricingSection) {
+        const rect = pricingSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          if (Math.random() > 0.7) {
+            const newBubble = {
+              id: Date.now(),
+              x: Math.random() * 100,
+              y: Math.random() * 100
+            };
+            setBubbles(prev => [...prev, newBubble]);
+            setTimeout(() => {
+              setBubbles(prev => prev.filter(b => b.id !== newBubble.id));
+            }, 2000);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      {/* Burbujas globales */}
+      {bubbles.map(bubble => (
+        <div
+          key={bubble.id}
+          className="fixed w-3 h-3 bg-green-500 rounded-full animate-pulse pointer-events-none"
+          style={{
+            left: `${bubble.x}%`,
+            top: `${bubble.y}%`,
+            boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)',
+            animation: 'float-up 2s ease-out forwards',
+            zIndex: 10
+          }}
+        />
+      ))}
+      <style>{`
+        @keyframes float-up {
+          0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-100px) scale(0.5);
+          }
+        }
+      `}</style>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition">
+          <a href="/" className="flex items-center gap-2 hover:opacity-80 transition z-10">
             <img src="/logo-green.png" alt="LuxNet Innovate" className="w-8 h-8" />
             <span className="text-xl font-bold font-orbitron text-green-500">LuxNet Innovate</span>
           </a>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Características</a>
-            <a href="#indicators" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Indicadores</a>
-            <a href="#pricing" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Precios</a>
-            <a href="#about" className="text-sm hover:text-green-500 transition hover:shadow-[0_0_10px_rgba(34,197,94,0.8)] px-3 py-2 rounded-lg">Acerca de</a>
+          <div className="sm:hidden md:flex items-center gap-4 z-10">
+            <a href="#features" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Características</a>
+            <a href="#indicators" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Indicadores</a>
+            <a href="#pricing" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Precios</a>
+            <a href="#about" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Acerca de</a>
           </div>
           <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
             Comenzar
@@ -51,10 +123,6 @@ export default function Home() {
               </div>
               <div className="flex gap-8 pt-4">
                 <div>
-                  <div className="text-2xl font-bold font-orbitron text-green-500">50+</div>
-                  <div className="text-sm text-muted-foreground">Indicadores Técnicos</div>
-                </div>
-                <div>
                   <div className="text-2xl font-bold font-orbitron text-green-500">24/7</div>
                   <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
                 </div>
@@ -62,7 +130,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img 
-                src="/images/trading-chart-1.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-1_0ce062c8.png" 
                 alt="Dashboard de Análisis Técnico" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
@@ -83,7 +151,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: TrendingUp, title: "Indicadores Avanzados", description: "Acceso a 50+ indicadores técnicos profesionales" },
+              { icon: TrendingUp, title: "Indicadores Avanzados", description: "Acceso a Indicador LuxNet Pro" },
               { icon: BarChart3, title: "Análisis en Tiempo Real", description: "Datos de mercado actualizados instantáneamente" },
               { icon: Zap, title: "Alertas Inteligentes", description: "Notificaciones personalizadas basadas en tus criterios" },
               { icon: Shield, title: "Seguridad Garantizada", description: "Protección de datos de nivel empresarial" },
@@ -140,7 +208,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img 
-                src="/images/trading-chart-2.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-2_fe841edb.png" 
                 alt="Indicadores Técnicos" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
@@ -155,7 +223,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <img 
-                src="/images/trading-chart-3.png" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-3_94a7ab91.png" 
                 alt="Herramientas de Trading" 
                 className="w-full rounded-lg shadow-2xl border border-border"
               />
@@ -212,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 border-t border-border">
+      <section id="pricing" className="py-20 border-t border-border relative overflow-hidden">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-4 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Planes de Precios</h2>
@@ -220,29 +288,43 @@ export default function Home() {
               Elige el plan que se adapte a tus necesidades de trading
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: "LuxNet Basic",
-                price: "$149.99",
+                price: "$249.99",
                 period: "Pago Único",
                 description: "Para traders principiantes",
-                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Cómo Crear una Estrategia de Trading Rentable"]
+                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Cómo Crear una Estrategia de Trading Rentable"],
+                isPremium: true,
+                paypalButtonId: "H8CPXMZH8SA6U"
               },
               {
                 name: "LuxNet Professional",
-                price: "$250.99",
+                price: "$399.99",
                 period: "Pago Único",
                 description: "Para traders serios",
                 features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal", "Estrategia de Trading Rentable"],
-                highlighted: true
+                highlighted: true,
+                isPremium: true,
+                paypalButtonId: "P6YDYJ8ESB5Y8"
+              },
+              {
+                name: "Master Class",
+                price: "$150.00",
+                period: "Pago Único",
+                description: "Presentación en Vivo de la Estrategia",
+                features: ["Presentación en vivo de 2 horas", "Estrategia LuxNet Innovate completa", "Análisis técnico en tiempo real", "Preguntas y respuestas interactivo", "Materiales de referencia incluidos", "Acceso a grabación de la sesión", "Certificado de participación", "Soporte post-sesión"],
+                highlighted: true,
+                isPremium: true,
+                paypalButtonId: "WGYF89W94W8WJ"
               }
             ].map((plan, idx) => {
               const { ref, isVisible } = useIntersectionObserver();
               return (
               <div ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
               <Card 
-                className={`p-8 border ${plan.highlighted ? 'border-green-500 bg-card' : 'border-border bg-background/50'} hover:border-green-500 hover:border-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300`}
+                className={`p-8 border-2 ${plan.highlighted ? 'border-green-500 bg-card' : 'border-green-500 bg-background/50'} hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300`}
               >
                 <h3 className="text-xl font-bold font-orbitron mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
@@ -251,19 +333,25 @@ export default function Home() {
                   <span className="text-sm text-muted-foreground ml-2">{plan.period}</span>
                 </div>
                 <div className="flex gap-3 mb-6">
-                  <Button 
-                    className="flex-1 bg-green-500 text-black hover:bg-green-600"
-                    onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
-                  >
-                    Comenzar
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="flex-1 border-2 border-green-500 text-green-500 hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 shadow-[0_0_10px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.8)]"
-                    onClick={() => idx === 0 ? setShowBasicPDF(true) : setShowProfessionalPDF(true)}
-                  >
-                    Ver Detalles
-                  </Button>
+                  {plan.isPremium ? (
+                    <div id={`paypal-container-${plan.paypalButtonId}`} className="w-full"></div>
+                  ) : (
+                    <>
+                      <Button 
+                        className="flex-1 bg-green-500 text-black hover:bg-green-600"
+                        onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
+                      >
+                        Comenzar
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        className="flex-1 border-2 border-green-500 text-green-500 hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 shadow-[0_0_10px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.8)]"
+                        onClick={() => idx === 0 ? setShowBasicPDF(true) : setShowProfessionalPDF(true)}
+                      >
+                        Ver Detalles
+                      </Button>
+                    </>
+                  )}
                 </div>
                 <ul className="space-y-3">
                   {plan.features.map((feature, fidx) => (
@@ -286,25 +374,25 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Acerca de LuxNet Innovate</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
-            </p>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              Fundada por un equipo de traders profesionales, LuxNet Innovate no solo ofrece tecnología avanzada, sino que también comparte una rica herencia de conocimientos adquiridos a lo largo de años de experiencia en el terreno. Esta combinación única de sabiduría y tecnología asegura que nuestros usuarios cuenten con recursos excepcionales para tomar decisiones informadas y estratégicas.
-            </p>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              En un entorno financiero que cambia constantemente, nuestra plataforma está diseñada para adaptarse y evolucionar, manteniéndote a la vanguardia de las tendencias y oportunidades del mercado. Con LuxNet Innovate, no solo estás obteniendo herramientas de análisis, sino también un socio comprometido con tu éxito en cada paso del camino.
-            </p>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-              Únete a nosotros y descubre cómo nuestra dedicación al análisis técnico puro puede transformar tu experiencia de trading e inversión, llevándote a nuevos niveles de conocimiento y rentabilidad.
-            </p>
+            <div className="border-2 border-green-500 rounded-lg p-8 max-w-2xl mx-auto bg-green-500/5">
+              <p className="text-muted-foreground">
+                LuxNet Innovate se enorgullece de ser un pilar en el mundo del análisis técnico, brindando a traders e inversores las herramientas necesarias para navegar en los complejos mercados financieros actuales. Nuestra filosofía se centra en el análisis técnico puro, confiando en la capacidad humana para interpretar datos de mercado sin la intervención de algoritmos, lo que permite una conexión más auténtica y directa con las tendencias del mercado.
+              </p>
+              <p className="text-muted-foreground mt-4">
+                Fundada por un equipo de traders profesionales, LuxNet Innovate no solo ofrece tecnología avanzada, sino que también comparte una rica herencia de conocimientos adquiridos a lo largo de años de experiencia en el terreno. Esta combinación única de sabiduría y tecnología asegura que nuestros usuarios cuenten con recursos excepcionales para tomar decisiones informadas y estratégicas.
+              </p>
+              <p className="text-muted-foreground mt-4">
+                En un entorno financiero que cambia constantemente, nuestra plataforma está diseñada para adaptarse y evolucionar, manteniéndote a la vanguardia de las tendencias y oportunidades del mercado. Con LuxNet Innovate, no solo estás obteniendo herramientas de análisis, sino también un socio comprometido con tu éxito en cada paso del camino.
+              </p>
+              <p className="text-muted-foreground mt-4">
+                Únete a nosotros y descubre cómo nuestra dedicación al análisis técnico puro puede transformar tu experiencia de trading e inversión, llevándote a nuevos niveles de conocimiento y rentabilidad.
+              </p>
+            </div>
 
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-1 gap-8 max-w-xs mx-auto mt-12">
             {[
-              { value: "2025", label: "Fundada" },
-              { value: "35", label: "Miembros del Equipo" },
-              { value: "50+", label: "Países Servidos" }
+              { value: "2025", label: "Fundada" }
             ].map((stat, idx) => (
               <Card key={idx} className="p-6 text-center bg-card/50 border-border">
                 <div className="text-3xl font-bold font-orbitron text-green-500 mb-2">{stat.value}</div>
@@ -423,7 +511,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="flex-shrink-0">
-                  <img src="/ceo.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/ceo_6f1c1528.png" alt="Yudiel Almarales" className="w-48 h-48 rounded-full object-cover border-4 border-green-500" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold font-orbitron mb-4">Yudiel Almarales</h3>
