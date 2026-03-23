@@ -92,7 +92,7 @@ export default function Home() {
             <img src="/logo-green.png" alt="LuxNet Innovate" className="w-8 h-8" />
             <span className="text-xl font-bold font-orbitron text-green-500">LuxNet Innovate</span>
           </a>
-          <div className="sm:hidden md:flex items-center gap-4 z-10">
+          <div className="flex items-center gap-4 z-10 max-sm:hidden">
             <a href="#features" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Características</a>
             <a href="#indicators" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Indicadores</a>
             <a href="#pricing" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Precios</a>
