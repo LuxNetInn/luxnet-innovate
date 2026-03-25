@@ -111,7 +111,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
-                Análisis Técnico Avanzado
+                Servicios de Consultoría en Análisis Técnico
               </h1>
               <p className="text-lg text-muted-foreground">
                 Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
@@ -295,7 +295,7 @@ export default function Home() {
                 price: "$249.99",
                 period: "Pago Único",
                 description: "Para traders principiantes",
-                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos", "Cómo Crear una Estrategia de Trading Rentable"],
+                features: ["Indicadores básicos", "1 lista de vigilancia", "Soporte por correo", "Actualizaciones diarias del mercado", "Acceso a Folletos y Videos Explicativos"],
                 isPremium: true,
                 paypalButtonId: "H8CPXMZH8SA6U"
               },
@@ -304,7 +304,7 @@ export default function Home() {
                 price: "$399.99",
                 period: "Pago Único",
                 description: "Para traders serios",
-                features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal", "Estrategia de Trading Rentable"],
+                features: ["Todos los indicadores", "Listas de vigilancia ilimitadas", "Soporte prioritario", "Alertas en tiempo real", "Gráficos avanzados", "Entrenamiento Individual", "Análisis y Proyección Semanal"],
                 highlighted: true,
                 isPremium: true,
                 paypalButtonId: "P6YDYJ8ESB5Y8"
