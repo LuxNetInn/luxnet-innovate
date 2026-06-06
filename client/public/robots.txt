@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /.git
 
-Sitemap: https://luxnetinnovate.com/sitemap.xml
+Sitemap: https://luxnetanaly-gjwfao3o.manus.space/sitemap.xml
