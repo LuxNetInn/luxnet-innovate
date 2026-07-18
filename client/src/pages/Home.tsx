@@ -4,7 +4,6 @@ import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import PDFModal from "@/components/PDFModal";
-import HexGrid from "@/components/HexGrid";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
@@ -60,8 +59,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative z-0">
-      <HexGrid global />
-      {/* Burbujas globales (efecto champán) — por encima de la malla de hexágonos */}
+      {/* Burbujas globales (efecto champán) */}
       {bubbles.map(bubble => (
         <div
           key={bubble.id}
