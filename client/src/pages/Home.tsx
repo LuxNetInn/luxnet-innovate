@@ -186,7 +186,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                 Explorar Todos los Indicadores <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -212,7 +212,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                 Probar Herramientas <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
