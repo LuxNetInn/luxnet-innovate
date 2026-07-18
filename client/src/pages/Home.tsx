@@ -121,13 +121,7 @@ export default function Home() {
                   Prueba Gratuita <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
-              <div className="flex gap-8 pt-4">
-                <div>
-                  <div className="text-2xl font-bold font-orbitron text-green-500">24/7</div>
-                  <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
-                </div>
-              </div>
-              </div>
+            </div>
               </div>
               </section>
 
