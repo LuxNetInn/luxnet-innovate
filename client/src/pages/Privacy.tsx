@@ -86,7 +86,7 @@ export default function Privacy() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">8. Contacto</h2>
             <p>
-              Si tienes preguntas sobre esta Política de Privacidad, contáctanos a través de WhatsApp: +90 537 847 58 59
+              Si tienes preguntas sobre esta Política de Privacidad, contáctanos a través de WhatsApp: +1 561 690 5996
             </p>
           </section>
         </div>
