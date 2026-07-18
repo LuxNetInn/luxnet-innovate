@@ -118,14 +118,46 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Burbuja flotante */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        aria-label="Abrir chat"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-black shadow-[0_0_20px_rgba(34,197,94,0.6)] transition hover:scale-105"
-      >
-        {open ? <X size={24} /> : <MessageCircle size={24} />}
-      </button>
+      {/* Burbuja flotante con ondas de atención */}
+      <div className="fixed bottom-6 right-6 z-50">
+        {/* Ondas alternantes (solo cuando el chat está cerrado) */}
+        {!open && (
+          <span className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <span className="chat-wave chat-wave-1" />
+            <span className="chat-wave chat-wave-2" />
+            <span className="chat-wave chat-wave-3" />
+          </span>
+        )}
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Abrir chat"
+          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-black shadow-[0_0_20px_rgba(34,197,94,0.6)] transition hover:scale-105"
+        >
+          {open ? <X size={24} /> : <MessageCircle size={24} />}
+        </button>
+      </div>
+
+      <style>{`
+        .chat-wave {
+          position: absolute;
+          width: 3.5rem;   /* h-14 */
+          height: 3.5rem;  /* w-14 */
+          border-radius: 9999px;
+          border: 2px solid rgba(34, 197, 94, 0.7);
+          animation: chatPulse 3s ease-out infinite;
+        }
+        .chat-wave-1 { animation-delay: 0s; }
+        .chat-wave-2 { animation-delay: 1s; }
+        .chat-wave-3 { animation-delay: 2s; }
+        @keyframes chatPulse {
+          0%   { transform: scale(1);   opacity: 0.7; }
+          70%  { opacity: 0; }
+          100% { transform: scale(2.4); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .chat-wave { animation: none; display: none; }
+        }
+      `}</style>
 
       {open && (
         <div className="fixed bottom-24 right-6 z-50 flex h-[32rem] w-[22rem] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-green-500/40 bg-background/95 shadow-[0_0_40px_rgba(34,197,94,0.25)] backdrop-blur-md">
