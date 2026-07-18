@@ -116,16 +116,16 @@ export default function Home() {
               <p className="text-lg text-muted-foreground">
                 Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:justify-end">
                 <Button size="lg" className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                   Prueba Gratuita <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
             </div>
-              </div>
-              </section>
+          </div>
+      </section>
 
-              {/* Features Section */}
+      {/* Features Section */}
       <section id="features" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
