@@ -2,11 +2,14 @@ import { useMemo } from "react";
 
 /**
  * Futuristic hex-grid background: a honeycomb of connected hexagons with a
- * green-neon energy pulse traveling through the mesh. Pure SVG + CSS, no deps.
+ * green-neon light sweep that glides across the mesh at shifting angles,
+ * leaving a soft (diffuse) glow. Pure SVG + CSS, no deps.
+ * The sweep is a single rotating gradient (cheap), not per-hex animation,
+ * so it stays fluid even full-screen.
  * Meant to sit behind hero/CTA content (parent must be `relative overflow-hidden`).
  */
 
-const HEX_SIZE = 34; // center-to-vertex radius
+const HEX_SIZE = 22; // center-to-vertex radius — smaller cells
 const HEX_W = HEX_SIZE * Math.sqrt(3); // horizontal spacing
 const HEX_H = HEX_SIZE * 1.5; // vertical spacing (pointy-top rows)
 
@@ -28,8 +31,8 @@ export default function HexGrid({
   global?: boolean;
 }) {
   const { cells, edges } = useMemo(() => {
-    const cols = 16;
-    const rows = 10;
+    const cols = 24;
+    const rows = 15;
     const cells: { x: number; y: number; id: number }[] = [];
     let id = 0;
     for (let row = 0; row < rows; row++) {
@@ -40,15 +43,15 @@ export default function HexGrid({
       }
     }
     // Connect each cell to its right neighbor and lower-right neighbor (honeycomb edges).
-    const edges: { x1: number; y1: number; x2: number; y2: number; k: number }[] = [];
+    const edges: { x1: number; y1: number; x2: number; y2: number }[] = [];
     cells.forEach((c, i) => {
       const right = cells[i + 1];
-      const downRight = cells[i + cols - (i % cols === cols - 1 ? 0 : 0) + (i % cols === cols - 1 ? 0 : 1)];
+      const downRight = cells[i + cols + 1];
       if (right && i % cols !== cols - 1) {
-        edges.push({ x1: c.x, y1: c.y, x2: right.x, y2: right.y, k: i });
+        edges.push({ x1: c.x, y1: c.y, x2: right.x, y2: right.y });
       }
       if (downRight && i + cols + 1 < cells.length && i % cols !== cols - 1) {
-        edges.push({ x1: c.x, y1: c.y, x2: downRight.x, y2: downRight.y, k: i + cols });
+        edges.push({ x1: c.x, y1: c.y, x2: downRight.x, y2: downRight.y });
       }
     });
     return { cells, edges };
@@ -60,7 +63,7 @@ export default function HexGrid({
       style={
         global
           ? {
-              opacity: 0.16,
+              opacity: 0.18,
               maskImage:
                 "radial-gradient(ellipse 75% 65% at 50% 40%, transparent 0%, transparent 35%, black 100%)",
               WebkitMaskImage:
@@ -71,49 +74,61 @@ export default function HexGrid({
       aria-hidden="true"
     >
       <svg
-        className="h-full w-full opacity-70"
-        viewBox="0 0 700 560"
+        className="h-full w-full"
+        viewBox="0 0 760 620"
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
+          {/* Soft base glow */}
           <radialGradient id="hexGlow" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stopColor="#22c55e" stopOpacity="0.18" />
+            <stop offset="0%" stopColor="#22c55e" stopOpacity="0.16" />
             <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
           </radialGradient>
-          <filter id="hexBlur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="0.6" />
+
+          {/* Neon sweep: a soft band of light that rotates across angles.
+              Rotating a linearGradient via gradientTransform is GPU-cheap. */}
+          <linearGradient id="hexSweep" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#22c55e" stopOpacity="0" />
+            <stop offset="42%" stopColor="#22c55e" stopOpacity="0" />
+            <stop offset="50%" stopColor="#4ade80" stopOpacity="0.9" />
+            <stop offset="58%" stopColor="#22c55e" stopOpacity="0" />
+            <stop offset="100%" stopColor="#22c55e" stopOpacity="0" />
+          </linearGradient>
+
+          {/* Diffuse blur for the sweep so the light feels soft, not sharp */}
+          <filter id="hexSoft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="14" />
           </filter>
         </defs>
 
-        <rect width="700" height="560" fill="url(#hexGlow)" />
+        <rect width="760" height="620" fill="url(#hexGlow)" />
 
-        <g stroke="#22c55e" strokeOpacity="0.22" strokeWidth="1" filter="url(#hexBlur)">
+        {/* Static mesh */}
+        <g stroke="#22c55e" strokeOpacity="0.18" strokeWidth="0.8">
           {edges.map((e, i) => (
             <line key={`e${i}`} x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} />
           ))}
         </g>
-
-        <g
-          fill="none"
-          stroke="#22c55e"
-          strokeWidth="1.4"
-          className="hex-cells"
-          style={{ animation: "hexBreath 6s ease-in-out infinite" }}
-        >
+        <g fill="none" stroke="#22c55e" strokeWidth="1" strokeOpacity="0.3">
           {cells.map((c, i) => (
-            <polygon
-              key={`c${i}`}
-              points={hexPoints(c.x, c.y, HEX_SIZE - 3)}
-              strokeOpacity={0.35}
-            />
+            <polygon key={`c${i}`} points={hexPoints(c.x, c.y, HEX_SIZE - 2)} />
           ))}
         </g>
+
+        {/* Neon sweep — one rotating gradient, blurred, screen-blended */}
+        <rect
+          width="760"
+          height="620"
+          fill="url(#hexSweep)"
+          filter="url(#hexSoft)"
+          style={{ mixBlendMode: "screen", animation: "hexSweep 9s linear infinite" }}
+        />
       </svg>
 
       <style>{`
-        @keyframes hexBreath {
-          0%, 100% { opacity: 0.55; }
-          50% { opacity: 1; }
+        @keyframes hexSweep {
+          0%   { transform: rotate(0deg);   transform-origin: 50% 50%; }
+          100% { transform: rotate(360deg); transform-origin: 50% 50%; }
         }
       `}</style>
     </div>
