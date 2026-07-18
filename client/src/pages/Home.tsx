@@ -108,7 +108,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="container py-20 md:py-32 relative">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight text-green-500">
+            <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
               Servicios de Consultoría en Análisis Técnico
             </h1>
               <p className="text-lg text-muted-foreground">
