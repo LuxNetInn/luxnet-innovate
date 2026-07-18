@@ -186,7 +186,7 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 {[
-                  { title: "Indicadores de Momentum", items: ["RSI", "MACD", "Oscilador Estocástico"] },
+                  { title: "Indicadores de Momentum", items: ["RSI", "MACD", "Oscilador Estocástico", "Indicador LuxNet PRO ₿"] },
                   { title: "Indicadores de Tendencia", items: ["Medias Móviles", "Bandas de Bollinger", "Chandelier Exit"] },
                   { title: "Indicadores de Volumen", items: ["Perfil de Volumen"] }
                 ].map((category, idx) => (
