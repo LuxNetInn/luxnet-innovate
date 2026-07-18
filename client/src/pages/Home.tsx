@@ -109,11 +109,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="container py-20 md:py-32 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
-                Servicios de Consultoría en Análisis Técnico
-              </h1>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block transition-all duration-300 hover:bg-green-400 hover:shadow-[0_0_40px_rgba(34,197,94,1)] hover:scale-[1.02]">
+              Servicios de Consultoría en Análisis Técnico
+            </h1>
               <p className="text-lg text-muted-foreground">
                 Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
               </p>
@@ -128,20 +127,11 @@ export default function Home() {
                   <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
                 </div>
               </div>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-1_0ce062c8.png" 
-                alt="Dashboard de Análisis Técnico" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-background/20 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
+              </div>
+              </section>
 
-      {/* Features Section */}
+              {/* Features Section */}
       <section id="features" className="py-20 border-t border-border">
         <div className="container">
           <div className="text-center mb-16">
