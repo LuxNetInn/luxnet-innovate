@@ -44,7 +44,9 @@ export default function ChatWidget() {
   const [busy, setBusy] = useState(false);
   const [escalate, setEscalate] = useState(false);
   const [name, setName] = useState("");
+  const [contactType, setContactType] = useState<"email" | "whatsapp" | "telegram">("email");
   const [contact, setContact] = useState("");
+  const [contactError, setContactError] = useState("");
   const [escalated, setEscalated] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -75,13 +77,28 @@ export default function ChatWidget() {
   }
 
   async function sendEscalate() {
-    if (!input.trim() || busy) return;
+    const msg = input.trim();
+    if (!msg || busy) return;
+    // Validación: nombre y contacto obligatorios (si no, no podemos responderle).
+    if (!name.trim()) { setContactError("Escribe tu nombre para que un asesor te identifique."); return; }
+    const c = contact.trim();
+    if (!c) { setContactError("Deja un contacto (email, WhatsApp o Telegram) para responderte."); return; }
+    if (contactType === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c)) {
+      setContactError("Ese email no parece válido."); return;
+    }
+    if (contactType === "whatsapp" && !/^\+?\d[\d\s-]{6,}$/.test(c)) {
+      setContactError("Escribe tu número de WhatsApp con código de país (ej. +1 561 690 5996)."); return;
+    }
+    if (contactType === "telegram" && !/^@?[a-zA-Z0-9_]{4,}$/.test(c)) {
+      setContactError("Escribe tu usuario de Telegram (ej. @usuario)."); return;
+    }
+    setContactError("");
     setBusy(true);
     try {
       const res = await fetch(`${CHAT_API}/chat/escalate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input, name: name || "visitante", contact }),
+        body: JSON.stringify({ message: msg, name: name.trim(), contact: c, contactType }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -159,9 +176,26 @@ export default function ChatWidget() {
           {/* Modo humano */}
           {escalate && !escalated && (
             <div className="border-t border-border bg-black/30 px-4 py-3 space-y-2">
-              <p className="text-xs text-muted-foreground">Déjanos tu mensaje y un asesor te escribirá por Telegram.</p>
-              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tu nombre (opcional)" className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-green-500" />
-              <input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Contacto (opcional)" className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-green-500" />
+              <p className="text-xs text-muted-foreground">Déjanos tus datos y un asesor te escribirá por el canal que elijas.</p>
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tu nombre *" className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-green-500" />
+              <div className="grid grid-cols-3 gap-1">
+                {(["email", "whatsapp", "telegram"] as const).map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => { setContactType(t); setContactError(""); }}
+                    className={`rounded-lg border px-2 py-1 text-xs capitalize transition ${contactType === t ? "border-green-500 bg-green-500/10 text-green-400" : "border-border text-muted-foreground hover:bg-muted"}`}
+                  >
+                    {t === "email" ? "Email" : t === "whatsapp" ? "WhatsApp" : "Telegram"}
+                  </button>
+                ))}
+              </div>
+              <input
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                placeholder={contactType === "email" ? "tucorreo@ejemplo.com *" : contactType === "whatsapp" ? "+1 561 690 5996 *" : "@usuario *"}
+                className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm outline-none focus:border-green-500"
+              />
+              {contactError && <p className="text-xs text-red-400">{contactError}</p>}
               <a href={OWNER_WA} target="_blank" rel="noreferrer" className="block text-center text-xs text-green-400 hover:underline">o escríbenos directo por WhatsApp</a>
             </div>
           )}
