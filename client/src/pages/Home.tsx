@@ -303,7 +303,7 @@ export default function Home() {
                     <>
                       <Button 
                         className="flex-1 bg-green-500 text-black hover:bg-green-600"
-                        onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
+                        onClick={() => window.open('https://wa.me/15616905996', '_blank')}
                       >
                         Comenzar
                       </Button>
