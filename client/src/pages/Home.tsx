@@ -4,6 +4,7 @@ import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import PDFModal from "@/components/PDFModal";
+import HexGrid from "@/components/HexGrid";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
@@ -106,7 +107,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/15 via-green-500/5 to-transparent" />
+        <HexGrid />
         <div className="container py-20 md:py-32 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -406,7 +407,8 @@ export default function Home() {
 
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-border bg-gradient-to-br from-green-500/15 via-green-500/5 to-transparent">
+      <section className="relative overflow-hidden py-20 border-t border-border">
+        <HexGrid />
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
