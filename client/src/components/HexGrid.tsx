@@ -105,8 +105,6 @@ export default function HexGrid({
               key={`c${i}`}
               points={hexPoints(c.x, c.y, HEX_SIZE - 3)}
               strokeOpacity={0.35}
-              className="hex-pulse"
-              style={{ animationDelay: `${(i % 12) * 0.4}s` }}
             />
           ))}
         </g>
@@ -117,11 +115,6 @@ export default function HexGrid({
           0%, 100% { opacity: 0.55; }
           50% { opacity: 1; }
         }
-        @keyframes hexPulseNode {
-          0%, 100% { stroke-opacity: 0.15; }
-          50% { stroke-opacity: 0.9; filter: drop-shadow(0 0 4px #22c55e); }
-        }
-        .hex-pulse { animation: hexPulseNode 3.2s ease-in-out infinite; }
       `}</style>
     </div>
   );
