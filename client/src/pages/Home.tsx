@@ -59,8 +59,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
-      {/* Burbujas globales */}
+    <div className="min-h-screen bg-background text-foreground relative z-0">
+      <HexGrid global />
+      {/* Burbujas globales (efecto champán) — por encima de la malla de hexágonos */}
       {bubbles.map(bubble => (
         <div
           key={bubble.id}
@@ -70,7 +71,7 @@ export default function Home() {
             top: `${bubble.y}%`,
             boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)',
             animation: 'float-up 2s ease-out forwards',
-            zIndex: 10
+            zIndex: 20
           }}
         />
       ))}
@@ -107,7 +108,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <HexGrid />
         <div className="container py-20 md:py-32 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -408,7 +408,6 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="relative overflow-hidden py-20 border-t border-border">
-        <HexGrid />
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

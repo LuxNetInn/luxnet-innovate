@@ -134,11 +134,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    background-image: url('/bg-car.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   body::before {

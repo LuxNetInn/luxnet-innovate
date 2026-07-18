@@ -19,7 +19,14 @@ function hexPoints(cx: number, cy: number, r: number): string {
   return pts.join(" ");
 }
 
-export default function HexGrid({ className = "" }: { className?: string }) {
+export default function HexGrid({
+  className = "",
+  global = false,
+}: {
+  className?: string;
+  /** Fixed, full-page background (behind all content). */
+  global?: boolean;
+}) {
   const { cells, edges } = useMemo(() => {
     const cols = 16;
     const rows = 10;
@@ -49,7 +56,18 @@ export default function HexGrid({ className = "" }: { className?: string }) {
 
   return (
     <div
-      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+      className={`pointer-events-none ${global ? "fixed inset-0 z-0" : "absolute inset-0 overflow-hidden"} ${className}`}
+      style={
+        global
+          ? {
+              opacity: 0.16,
+              maskImage:
+                "radial-gradient(ellipse 75% 65% at 50% 40%, transparent 0%, transparent 35%, black 100%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 75% 65% at 50% 40%, transparent 0%, transparent 35%, black 100%)",
+            }
+          : undefined
+      }
       aria-hidden="true"
     >
       <svg
