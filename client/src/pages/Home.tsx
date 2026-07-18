@@ -165,10 +165,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Indicators Section */}
+      {/* Indicators + Trading Tools Section (side by side, no images) */}
       <section id="indicators" className="py-20 border-t border-border">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Columna 1: Indicadores Técnicos Profesionales */}
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Indicadores Técnicos Profesionales</h2>
               <p className="text-muted-foreground">
@@ -197,28 +198,8 @@ export default function Home() {
                 Explorar Todos los Indicadores <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-2_fe841edb.png" 
-                alt="Indicadores Técnicos" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Trading Tools Section */}
-      <section className="py-20 border-t border-border">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-3_94a7ab91.png" 
-                alt="Herramientas de Trading" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-            </div>
+            {/* Columna 2: Herramientas Avanzadas de Trading */}
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
