@@ -146,7 +146,7 @@ export default function Home() {
               const Icon = feature.icon;
               const { ref, isVisible } = useIntersectionObserver();
               return (
-                <div key={idx} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
+                <div key={feature.title} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
                   <Card
                     className="luxnet-feature-card p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300"
                     style={{ "--feature-delay": `${idx * 2}s` } as CSSProperties}
@@ -178,11 +178,11 @@ export default function Home() {
                   { title: "Indicadores de Tendencia", items: ["Medias Móviles", "Bandas de Bollinger", "Chandelier Exit"] },
                   { title: "Indicadores de Volumen", items: ["Perfil de Volumen"] }
                 ].map((category, idx) => (
-                  <div key={idx}>
+                  <div key={category.title}>
                     <h4 className="font-semibold text-green-500 mb-2">{category.title}</h4>
                     <ul className="space-y-1">
                       {category.items.map((item, itemIdx) => (
-                        <li key={itemIdx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                           <div className="w-2 h-2 bg-green-500 rounded-full" />
                           {item}
                         </li>
@@ -211,7 +211,7 @@ export default function Home() {
                   "Alertas personalizadas en tiempo real",
                   "Backtesting de estrategias"
                 ].map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-muted-foreground">
+                  <li key={feature} className="flex items-center gap-3 text-muted-foreground">
                     <div className="w-2 h-2 bg-green-500 rounded-full" />
                     {feature}
                   </li>
@@ -239,7 +239,7 @@ export default function Home() {
               { title: "Criptomonedas", description: "Bitcoin, Ethereum, Altcoins" },
               { title: "Forex", description: "Pares de divisas principales y exóticos" }
             ].map((market, idx) => (
-              <Card key={idx} className="p-6 text-center bg-card/50 border-border flex-1">
+              <Card key={market.title} className="p-6 text-center bg-card/50 border-border flex-1">
                 <h3 className="text-xl font-semibold text-green-500 mb-2">{market.title}</h3>
                 <p className="text-sm text-muted-foreground">{market.description}</p>
               </Card>
@@ -291,7 +291,7 @@ export default function Home() {
             ].map((plan, idx) => {
               const { ref, isVisible } = useIntersectionObserver();
               return (
-              <div ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
+              <div key={plan.paypalButtonId} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
               <Card 
                 className={`p-8 border-2 ${plan.highlighted ? 'border-green-500 bg-card' : 'border-green-500 bg-background/50'} hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300`}
               >
@@ -324,7 +324,7 @@ export default function Home() {
                 </div>
                 <ul className="space-y-3">
                   {plan.features.map((feature, fidx) => (
-                    <li key={fidx} className="flex items-center gap-2 text-sm">
+                    <li key={feature} className="flex items-center gap-2 text-sm">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
                       {feature}
                     </li>
@@ -363,7 +363,7 @@ export default function Home() {
             {[
               { value: "2025", label: "Fundada" }
             ].map((stat, idx) => (
-              <Card key={idx} className="p-6 text-center bg-card/50 border-border">
+              <Card key={stat.label} className="p-6 text-center bg-card/50 border-border">
                 <div className="text-3xl font-bold font-orbitron text-green-500 mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </Card>

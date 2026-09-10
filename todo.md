@@ -167,3 +167,8 @@
 ## Fin del registro
 
 - Próxima acción: solicitar confirmación operativa al usuario.
+
+- [x] Localizar todas las listas renderizadas sin `key` estable en `Home.tsx`.
+- [x] Añadir claves únicas y estables sin cambiar la interfaz.
+- [x] Verificar compilación y consola del navegador; build correcto y consola sin salida tras recargar `/?from_webdev=1`.
+- [ ] Guardar checkpoint de la corrección.
