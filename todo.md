@@ -167,11 +167,3 @@
 ## Fin del registro
 
 - Próxima acción: solicitar confirmación operativa al usuario.
-
-- [x] Rediseñar la secuencia para que nunca haya más de una tarjeta activa al mismo tiempo.
-- [x] Reemplazar el relleno por burbujas verde neón ascendentes, inspiradas en el efecto hover existente.
-- [x] Verificar la animación en escritorio, producción y soporte de reducción de movimiento.
-- [x] Publicar la corrección en el repositorio que alimenta el sitio en vivo mediante el commit `ddd0e19`.
-- [x] Confirmar el resultado final en `luxnetinnovate.com`; el CSS de producción contiene `luxnetNeonBubblesRise` y la captura pública muestra una sola tarjeta activa.
-
-- Validación en producción: en `https://luxnetinnovate.com/`, la inspección de estilos mostró duración de 18s y desfases 0s, 3s, 6s, 9s, 12s y 15s; en la muestra tomada, solo la tarjeta 6 tenía `bubbleOpacity` 0.864646 y movimiento ascendente, mientras las otras cinco estaban en opacidad 0.
