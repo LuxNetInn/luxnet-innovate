@@ -99,7 +99,7 @@ export default function Home() {
             <a href="#pricing" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Precios</a>
             <a href="#about" className="text-sm font-bold text-green-500 hover:text-black hover:bg-green-500 transition hover:shadow-[0_0_20px_rgba(34,197,94,1)] px-4 py-2 rounded-lg whitespace-nowrap">Acerca de</a>
           </div>
-          <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+          <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
             Comenzar
           </Button>
         </div>
@@ -109,16 +109,16 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5" />
         <div className="container py-20 md:py-32 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
                 Servicios de Consultoría en Análisis Técnico
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-2xl">
                 Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+                <Button size="lg" className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                   Prueba Gratuita <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
@@ -128,14 +128,6 @@ export default function Home() {
                   <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
                 </div>
               </div>
-            </div>
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-1_0ce062c8.png" 
-                alt="Dashboard de Análisis Técnico" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-background/20 to-transparent" />
             </div>
           </div>
         </div>
@@ -181,8 +173,8 @@ export default function Home() {
       {/* Indicators Section */}
       <section id="indicators" className="py-20 border-t border-border">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6 border-l-2 border-green-500/70 pl-6 md:pl-10">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Indicadores Técnicos Profesionales</h2>
               <p className="text-muted-foreground">
                 Indicadores de nivel profesional para analizar tendencias de mercado e identificar oportunidades de trading
@@ -210,13 +202,6 @@ export default function Home() {
                 Explorar Todos los Indicadores <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-2_fe841edb.png" 
-                alt="Indicadores Técnicos" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -224,20 +209,13 @@ export default function Home() {
       {/* Trading Tools Section */}
       <section className="py-20 border-t border-border">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663040482601/GJWfAo3ocxGFKE3ETxcAv6/trading-chart-3_94a7ab91.png" 
-                alt="Herramientas de Trading" 
-                className="w-full rounded-lg shadow-2xl border border-border"
-              />
-            </div>
-            <div className="space-y-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6 border-r-2 border-green-500/70 pr-6 md:pr-10 text-right">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
                 Suite completa de herramientas para análisis técnico profesional
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-3 inline-block text-left">
                 {[
                   "Gráficos interactivos con múltiples timeframes",
                   "Análisis de patrones de velas",
@@ -417,7 +395,7 @@ export default function Home() {
             Únete a miles de traders que usan LuxNet Innovate para análisis técnico profesional
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-black border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.8)] transition-all duration-300" onClick={() => window.open('https://wa.me/905378475859', '_blank')}>
+            <Button size="lg" className="bg-black border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,197,94,0.8)] transition-all duration-300" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
               Demo
             </Button>
           </div>
@@ -455,7 +433,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Contacto</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
+                <li><a href="https://wa.me/15616905996" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
                 <li><a href="mailto:info@luxnetinnovate.com" className="hover:text-green-500 transition">Email</a></li>
               </ul>
             </div>
@@ -475,7 +453,7 @@ export default function Home() {
                 </svg>
                 <span className="text-sm">Telegram</span>
               </a>
-              <a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
+              <a href="https://wa.me/15616905996" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-green-500 transition">
                 <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>

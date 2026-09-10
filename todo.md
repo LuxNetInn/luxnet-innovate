@@ -7,6 +7,11 @@
 - [x] Probar la animación en escritorio mediante captura visual y añadir soporte para reducción de movimiento.
 - [x] Configurar el monitoreo elegido y documentar su funcionamiento.
 - [ ] Crear un checkpoint final después de verificar la compilación.
+- [x] Retirar las imágenes de gráficos que reaparecieron en la página principal.
+- [x] Recomponer las secciones afectadas para evitar espacios vacíos.
+- [x] Sustituir la espuma clara de las tarjetas por burbujas verde neón.
+- [x] Verificar la nueva animación en escritorio y móvil.
+- [ ] Guardar un nuevo checkpoint con la corrección visual.
 
 ## Decisiones iniciales
 

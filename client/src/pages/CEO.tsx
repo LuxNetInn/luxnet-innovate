@@ -107,7 +107,7 @@ export default function CEO() {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="https://discord.gg/wFWHNgDNG" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">Discord</a></li>
                 <li><a href="https://t.me/+FCTX0J-vqsIxYmFh" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">Telegram</a></li>
-                <li><a href="https://wa.me/905378475859" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
+                <li><a href="https://wa.me/15616905996" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">WhatsApp</a></li>
               </ul>
             </div>
             <div>
