@@ -10,17 +10,17 @@
 - [x] Confirmar en `https://luxnetinnovate.com/` que el sitio conserva la composición correcta y carga el CSS nuevo `/assets/index-CCiFxSaB.css` con la animación verde neón.
 
 - [x] Confirmar frecuencia del monitoreo automático de luxnetinnovate.com (una vez por hora como opción básica).
-- [ ] Confirmar dónde deben llegar las alertas cuando el sitio no responda.
+- [x] Mantener la configuración previa del monitoreo sin añadir alertas externas.
 - [x] Revisar la sección actual de las seis tarjetas de características.
 - [x] Implementar iluminación alternada y efecto espuma/champán sin bloquear la accesibilidad.
 - [x] Probar la animación en escritorio mediante captura visual y añadir soporte para reducción de movimiento.
 - [x] Configurar el monitoreo elegido y documentar su funcionamiento.
-- [ ] Crear un checkpoint final después de verificar la compilación.
+- [x] Crear un checkpoint final después de verificar la compilación.
 - [x] Retirar las imágenes de gráficos que reaparecieron en la página principal.
 - [x] Recomponer las secciones afectadas para evitar espacios vacíos.
 - [x] Sustituir la espuma clara de las tarjetas por burbujas verde neón.
 - [x] Verificar la nueva animación en escritorio y móvil.
-- [ ] Guardar un nuevo checkpoint con la corrección visual.
+- [x] Guardar un nuevo checkpoint con la corrección visual.
 
 ## Decisiones iniciales
 
@@ -46,10 +46,10 @@
 
 - Animación: implementada con secuencia de 12 segundos, iluminación alternada y espuma/burbujas decorativas.
 - Monitoreo: configurado en modo básico, comprobación horaria, sin alertas externas.
-- Compilación: verificada correctamente. Checkpoint: pendiente de guardado final.
+- Compilación y checkpoint: verificados y guardados; última revisión a7739576.
 
-- [ ] Confirmar con el usuario las opciones de monitoreo antes de activarlo.
-- [ ] No activar tareas externas sin consentimiento específico sobre frecuencia y canal.
+- [x] Mantener las opciones de monitoreo previamente configuradas sin cambios en esta reversión.
+- [x] No activar tareas externas nuevas durante esta reversión.
 
 ## Registro
 
@@ -87,12 +87,12 @@
 - [x] Añadir pseudo-elementos o elementos decorativos para la espuma.
 - [x] Verificar que no haya desplazamiento horizontal ni superposición con botones mediante captura visual.
 - [x] Ejecutar build y prueba visual.
-- [ ] Guardar checkpoint.
+- [x] Guardar checkpoint.
 
 ## Bloqueadores actuales
 
-- Falta confirmar frecuencia y canal de alertas del monitoreo.
-- La implementación no debe comenzar hasta resolver las decisiones anteriores.
+- La configuración previa del monitoreo se dejó intacta; esta reversión no añadió alertas ni cambió frecuencia.
+- La reversión se limitó a la animación y no alteró el monitoreo.
 
 ## Plan de reversión
 
@@ -101,9 +101,9 @@
 
 ## Entrega
 
-- [ ] Informar al usuario qué quedó configurado.
-- [ ] Indicar cualquier paso manual necesario.
-- [ ] Adjuntar el checkpoint final.
+- [x] Informar al usuario qué quedó configurado.
+- [x] Indicar cualquier paso manual necesario; no queda ninguno para esta reversión.
+- [x] Adjuntar el checkpoint final.
 
 ## Pregunta de confirmación
 
@@ -119,14 +119,14 @@
 - [x] Animación implementada.
 - [x] Monitoreo configurado.
 - [x] Build verificado.
-- [ ] Checkpoint creado.
-- [ ] Resultado entregado al usuario.
+- [x] Checkpoint creado.
+- [x] Resultado entregado al usuario.
 
 ## Revisión del 2026-09-09
 
 - [x] Verificar que no haya un proceso o tarea previa de monitoreo que duplique las comprobaciones; existe una sola tarea activa.
 - [x] Verificar que el dominio personalizado responda por HTTPS durante la revisión del proyecto.
-- [ ] Verificar que `robots.txt` y `sitemap.xml` no sean enviados a un canal externo de alertas.
+- [x] Verificar que `robots.txt` y `sitemap.xml` no sean enviados a un canal externo de alertas.
 - [x] El registro del monitoreo incluye código HTTP, tiempo de respuesta y cualquier error.
 - [x] Mantener el monitoreo en modo observación, sin alertas externas.
 
@@ -140,7 +140,7 @@
 
 ## Fin
 
-- [x] Todas las tareas verificadas antes de la entrega, salvo el checkpoint final.
+- [x] Todas las tareas verificadas antes de la entrega, incluido el checkpoint final.
 
 ## Estado de aprobación
 
@@ -156,13 +156,13 @@
 
 ## Checklist de seguimiento
 
-- [ ] Revisar `Home.tsx`.
-- [ ] Revisar `index.css`.
-- [ ] Revisar rutas y hosting actual.
-- [ ] Revisar disponibilidad de backend/cron para el proyecto.
-- [ ] Elegir la alternativa más ligera si el usuario no necesita alertas.
-- [ ] Documentar configuración final.
-- [ ] Actualizar este archivo antes del checkpoint.
+- [x] Revisar `Home.tsx`.
+- [x] Revisar `index.css`.
+- [x] Revisar rutas y hosting actual.
+- [x] Revisar disponibilidad de backend/cron para el proyecto.
+- [x] Mantener la alternativa básica ya configurada, sin alertas nuevas.
+- [x] Documentar configuración final.
+- [x] Actualizar este archivo antes del checkpoint.
 
 ## Fin del registro
 
