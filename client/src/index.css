@@ -1,3 +1,4 @@
+/* LuxNet Innovate visual system: dark technical-analysis interface, Orbitron-led hierarchy, neon green focus states, and restrained champagne-like motion. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -126,6 +127,94 @@
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes luxnetFeaturePulse {
+  0%, 16%, 100% {
+    border-color: var(--border);
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0), inset 0 0 0 rgba(34, 197, 94, 0);
+  }
+  6%, 12% {
+    border-color: rgba(34, 197, 94, 0.95);
+    box-shadow: 0 0 28px rgba(34, 197, 94, 0.42), inset 0 0 24px rgba(34, 197, 94, 0.12);
+  }
+}
+
+@keyframes luxnetChampagneRise {
+  0%, 16%, 100% {
+    opacity: 0;
+    transform: translateY(18px) scaleY(0.35);
+  }
+  5%, 13% {
+    opacity: 0.82;
+    transform: translateY(-2px) scaleY(1);
+  }
+}
+
+@keyframes luxnetBubbleDrift {
+  0%, 16%, 100% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.55);
+  }
+  5%, 13% {
+    opacity: 0.9;
+    transform: translateY(-8px) scale(1);
+  }
+}
+
+.luxnet-feature-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  animation: luxnetFeaturePulse 12s ease-in-out infinite;
+  animation-delay: calc(var(--feature-index, 0) * 2s);
+}
+
+.luxnet-feature-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -18%;
+  height: 46%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 12% 40%, rgba(226, 232, 240, 0.8) 0 3px, transparent 4px),
+    radial-gradient(circle at 26% 72%, rgba(226, 232, 240, 0.64) 0 5px, transparent 6px),
+    radial-gradient(circle at 47% 32%, rgba(226, 232, 240, 0.78) 0 4px, transparent 5px),
+    radial-gradient(circle at 69% 68%, rgba(226, 232, 240, 0.62) 0 6px, transparent 7px),
+    radial-gradient(circle at 88% 36%, rgba(226, 232, 240, 0.72) 0 3px, transparent 4px),
+    linear-gradient(180deg, rgba(226, 232, 240, 0.08), rgba(34, 197, 94, 0.22));
+  filter: blur(0.2px);
+  border-radius: 50% 50% 0 0;
+  animation: luxnetChampagneRise 12s ease-in-out infinite;
+  animation-delay: calc(var(--feature-index, 0) * 2s);
+}
+
+.luxnet-feature-card::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  left: 22%;
+  bottom: 16%;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.86);
+  box-shadow: 22px -13px 0 rgba(226, 232, 240, 0.62), 52px 2px 0 rgba(226, 232, 240, 0.72), 86px -20px 0 rgba(226, 232, 240, 0.58), 128px -5px 0 rgba(226, 232, 240, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  animation: luxnetBubbleDrift 12s ease-in-out infinite;
+  animation-delay: calc(var(--feature-index, 0) * 2s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxnet-feature-card,
+  .luxnet-feature-card::before,
+  .luxnet-feature-card::after {
+    animation: none;
+  }
 }
 
 @layer base {

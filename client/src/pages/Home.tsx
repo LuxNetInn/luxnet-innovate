@@ -1,3 +1,4 @@
+/* LuxNet Innovate page style: dark technical-analysis layout with Orbitron hierarchy, neon green interaction states, and restrained sequential champagne motion. */
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
@@ -162,7 +163,10 @@ export default function Home() {
               const { ref, isVisible } = useIntersectionObserver();
               return (
                 <div key={idx} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
-                  <Card className="p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300">
+                  <Card
+                      className="luxnet-feature-card p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300"
+                      style={{ "--feature-index": idx } as React.CSSProperties}
+                    >
                     <Icon className="w-8 h-8 text-green-500 mb-4" />
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
