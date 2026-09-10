@@ -6,6 +6,8 @@
 - [x] Sincronizar el proyecto local con la fuente correcta del sitio en vivo.
 - [x] Reaplicar únicamente la iluminación alternada y el burbujeo verde neón sobre esa versión.
 - [x] Verificar fidelidad visual en escritorio y móvil antes de crear otro checkpoint.
+- [x] Publicar los cambios en `LuxNetInn/luxnet-innovate` mediante el commit `0056b97`.
+- [x] Confirmar en `https://luxnetinnovate.com/` que el sitio conserva la composición correcta y carga el CSS nuevo `/assets/index-CCiFxSaB.css` con la animación verde neón.
 
 - [x] Confirmar frecuencia del monitoreo automático de luxnetinnovate.com (una vez por hora como opción básica).
 - [ ] Confirmar dónde deben llegar las alertas cuando el sitio no responda.
