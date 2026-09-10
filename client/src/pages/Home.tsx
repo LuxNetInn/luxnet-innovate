@@ -1,9 +1,10 @@
-/* LuxNet Innovate page style: dark technical-analysis layout with Orbitron hierarchy, neon green interaction states, and restrained sequential champagne motion. */
+/* Base sincronizada con el sitio en vivo: conservar composición centrada sin imágenes y añadir solo movimiento verde neón a las tarjetas. */
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 import PDFModal from "@/components/PDFModal";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
@@ -59,8 +60,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
-      {/* Burbujas globales */}
+    <div className="min-h-screen bg-background text-foreground relative z-0">
+      {/* Burbujas globales (efecto champán) */}
       {bubbles.map(bubble => (
         <div
           key={bubble.id}
@@ -70,7 +71,7 @@ export default function Home() {
             top: `${bubble.y}%`,
             boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)',
             animation: 'float-up 2s ease-out forwards',
-            zIndex: 10
+            zIndex: 20
           }}
         />
       ))}
@@ -107,30 +108,21 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5" />
         <div className="container py-20 md:py-32 relative">
-          <div className="max-w-4xl">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
-                Servicios de Consultoría en Análisis Técnico
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold font-orbitron leading-tight bg-green-500 text-black px-6 py-4 rounded-lg inline-block">
+              Servicios de Consultoría en Análisis Técnico
+            </h1>
+              <p className="text-lg text-muted-foreground">
                 Herramientas de análisis de mercado de nivel profesional impulsadas por indicadores técnicos puros. Toma decisiones comerciales informadas con datos reales, no algoritmos.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:justify-end">
                 <Button size="lg" className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                   Prueba Gratuita <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
-              <div className="flex gap-8 pt-4">
-                <div>
-                  <div className="text-2xl font-bold font-orbitron text-green-500">24/7</div>
-                  <div className="text-sm text-muted-foreground">Cobertura de Mercados</div>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Features Section */}
@@ -156,9 +148,9 @@ export default function Home() {
               return (
                 <div key={idx} ref={ref} className={isVisible ? "animate-fade-in-up" : "opacity-0"} style={{ animationDelay: `${idx * 0.1}s` }}>
                   <Card
-                      className="luxnet-feature-card p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300"
-                      style={{ "--feature-index": idx } as React.CSSProperties}
-                    >
+                    className="luxnet-feature-card p-6 bg-card/50 border border-border hover:border-2 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.6)] transition-all duration-300"
+                    style={{ "--feature-delay": `${idx * 2}s` } as CSSProperties}
+                  >
                     <Icon className="w-8 h-8 text-green-500 mb-4" />
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
@@ -170,18 +162,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Indicators Section */}
+      {/* Indicators + Trading Tools Section (side by side, no images) */}
       <section id="indicators" className="py-20 border-t border-border">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6 border-l-2 border-green-500/70 pl-6 md:pl-10">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Columna 1: Indicadores Técnicos Profesionales */}
+            <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Indicadores Técnicos Profesionales</h2>
               <p className="text-muted-foreground">
                 Indicadores de nivel profesional para analizar tendencias de mercado e identificar oportunidades de trading
               </p>
               <div className="space-y-4">
                 {[
-                  { title: "Indicadores de Momentum", items: ["RSI", "MACD", "Oscilador Estocástico"] },
+                  { title: "Indicadores de Momentum", items: ["RSI", "MACD", "Oscilador Estocástico", "Indicador LuxNet PRO ₿"] },
                   { title: "Indicadores de Tendencia", items: ["Medias Móviles", "Bandas de Bollinger", "Chandelier Exit"] },
                   { title: "Indicadores de Volumen", items: ["Perfil de Volumen"] }
                 ].map((category, idx) => (
@@ -198,24 +191,18 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                 Explorar Todos los Indicadores <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Trading Tools Section */}
-      <section className="py-20 border-t border-border">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-6 border-r-2 border-green-500/70 pr-6 md:pr-10 text-right">
+            {/* Columna 2: Herramientas Avanzadas de Trading */}
+            <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold font-orbitron bg-green-500 text-black px-6 py-4 rounded-lg inline-block">Herramientas Avanzadas de Trading</h2>
               <p className="text-muted-foreground">
                 Suite completa de herramientas para análisis técnico profesional
               </p>
-              <ul className="space-y-3 inline-block text-left">
+              <ul className="space-y-3">
                 {[
                   "Gráficos interactivos con múltiples timeframes",
                   "Análisis de patrones de velas",
@@ -230,7 +217,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}>
+              <Button className="bg-green-500 text-black hover:bg-green-600" onClick={() => window.open('https://wa.me/15616905996', '_blank')}>
                 Probar Herramientas <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -321,7 +308,7 @@ export default function Home() {
                     <>
                       <Button 
                         className="flex-1 bg-green-500 text-black hover:bg-green-600"
-                        onClick={() => window.open('https://www.cognitoforms.com/LuxNetInnovate/FBC', '_blank')}
+                        onClick={() => window.open('https://wa.me/15616905996', '_blank')}
                       >
                         Comenzar
                       </Button>
@@ -388,7 +375,7 @@ export default function Home() {
 
 
       {/* CTA Section */}
-      <section className="py-20 border-t border-border bg-gradient-to-br from-primary/10 via-transparent to-accent/5">
+      <section className="relative overflow-hidden py-20 border-t border-border">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold font-orbitron mb-8 bg-green-500 text-black px-6 py-4 rounded-lg inline-block">¿Listo para Dominar el Análisis Técnico?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

@@ -1,5 +1,12 @@
 # Tareas pendientes
 
+- [x] Abrir y documentar la apariencia actual de `https://luxnetinnovate.com/`.
+- [x] Identificar el repositorio, rama y commit que Netlify está publicando: `LuxNetInn/luxnet-innovate`, rama `main`, base `08a448f`.
+- [x] Comparar la versión desplegada con el proyecto local sin sobrescribir ninguna de las dos.
+- [x] Sincronizar el proyecto local con la fuente correcta del sitio en vivo.
+- [x] Reaplicar únicamente la iluminación alternada y el burbujeo verde neón sobre esa versión.
+- [x] Verificar fidelidad visual en escritorio y móvil antes de crear otro checkpoint.
+
 - [x] Confirmar frecuencia del monitoreo automático de luxnetinnovate.com (una vez por hora como opción básica).
 - [ ] Confirmar dónde deben llegar las alertas cuando el sitio no responda.
 - [x] Revisar la sección actual de las seis tarjetas de características.
