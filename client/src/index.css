@@ -169,6 +169,7 @@
   min-height: 154px;
   animation: luxnetFeatureGlow 12s ease-in-out infinite;
   animation-delay: var(--feature-delay, 0s);
+  animation-fill-mode: both;
 }
 
 .luxnet-feature-card > * {
@@ -184,6 +185,7 @@
   right: -4%;
   bottom: -24%;
   height: 72%;
+  opacity: 0;
   pointer-events: none;
   border-radius: 52% 48% 0 0;
   background:
@@ -197,6 +199,7 @@
   filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.86));
   animation: luxnetNeonBubbleBed 12s ease-in-out infinite;
   animation-delay: var(--feature-delay, 0s);
+  animation-fill-mode: both;
 }
 
 .luxnet-feature-card::after {
@@ -207,6 +210,7 @@
   height: 7px;
   left: 18%;
   bottom: 18%;
+  opacity: 0;
   border-radius: 999px;
   pointer-events: none;
   background: rgba(74, 222, 128, 0.98);
@@ -219,6 +223,7 @@
   filter: drop-shadow(0 0 7px rgba(34, 197, 94, 1));
   animation: luxnetNeonBubblesRise 12s ease-in-out infinite;
   animation-delay: var(--feature-delay, 0s);
+  animation-fill-mode: both;
 }
 
 @media (prefers-reduced-motion: reduce) {
