@@ -78,7 +78,7 @@ export default function Disclaimer() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">Contacto</h2>
             <p>
-              Si tienes preguntas sobre este Descargo de Responsabilidad, contáctanos a través de WhatsApp: +90 537 847 58 59
+              Si tienes preguntas sobre este Descargo de Responsabilidad, contáctanos a través de WhatsApp: +1 561 690 5996
             </p>
           </section>
         </div>

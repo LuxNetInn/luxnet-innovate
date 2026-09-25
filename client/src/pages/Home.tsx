@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, BarChart3, Zap, Shield, Users, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 import PDFModal from "@/components/PDFModal";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
