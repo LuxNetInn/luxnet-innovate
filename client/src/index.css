@@ -168,8 +168,38 @@
   overflow: hidden;
   min-height: 154px;
   animation: luxnetFeatureGlow 12s ease-in-out infinite;
-  animation-delay: var(--feature-delay, 0s);
+  animation-delay: 0s;
   animation-fill-mode: both;
+}
+
+.luxnet-feature-grid > :nth-child(2) .luxnet-feature-card,
+.luxnet-feature-grid > :nth-child(2) .luxnet-feature-card::before,
+.luxnet-feature-grid > :nth-child(2) .luxnet-feature-card::after {
+  animation-delay: 2s;
+}
+
+.luxnet-feature-grid > :nth-child(3) .luxnet-feature-card,
+.luxnet-feature-grid > :nth-child(3) .luxnet-feature-card::before,
+.luxnet-feature-grid > :nth-child(3) .luxnet-feature-card::after {
+  animation-delay: 4s;
+}
+
+.luxnet-feature-grid > :nth-child(4) .luxnet-feature-card,
+.luxnet-feature-grid > :nth-child(4) .luxnet-feature-card::before,
+.luxnet-feature-grid > :nth-child(4) .luxnet-feature-card::after {
+  animation-delay: 6s;
+}
+
+.luxnet-feature-grid > :nth-child(5) .luxnet-feature-card,
+.luxnet-feature-grid > :nth-child(5) .luxnet-feature-card::before,
+.luxnet-feature-grid > :nth-child(5) .luxnet-feature-card::after {
+  animation-delay: 8s;
+}
+
+.luxnet-feature-grid > :nth-child(6) .luxnet-feature-card,
+.luxnet-feature-grid > :nth-child(6) .luxnet-feature-card::before,
+.luxnet-feature-grid > :nth-child(6) .luxnet-feature-card::after {
+  animation-delay: 10s;
 }
 
 .luxnet-feature-card > * {
@@ -198,7 +228,7 @@
     linear-gradient(180deg, rgba(34, 197, 94, 0.02), rgba(34, 197, 94, 0.25));
   filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.86));
   animation: luxnetNeonBubbleBed 12s ease-in-out infinite;
-  animation-delay: var(--feature-delay, 0s);
+  animation-delay: 0s;
   animation-fill-mode: both;
 }
 
@@ -222,7 +252,7 @@
     178px -15px 0 1px rgba(34, 197, 94, 0.8);
   filter: drop-shadow(0 0 7px rgba(34, 197, 94, 1));
   animation: luxnetNeonBubblesRise 12s ease-in-out infinite;
-  animation-delay: var(--feature-delay, 0s);
+  animation-delay: 0s;
   animation-fill-mode: both;
 }
 
